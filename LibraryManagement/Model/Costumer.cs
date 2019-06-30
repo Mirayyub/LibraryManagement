@@ -23,7 +23,7 @@ namespace LibraryManagement.Model
         [Required]
         public string LastName { get; set; }
 
-        [Required, RegularExpression(@"^\+994 (50|55|51|70) \d{3} \d{2} \d{2}$")]
+        [Required]
         public string PhoneNo { get; set; }
 
         [Required]

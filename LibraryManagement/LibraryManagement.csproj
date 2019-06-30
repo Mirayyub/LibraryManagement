@@ -54,6 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\LibraryContext.cs" />
+    <Compile Include="Forms\Book.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Book.Designer.cs">
+      <DependentUpon>Book.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,11 @@
     <Compile Include="Forms\LoginPg.Designer.cs">
       <DependentUpon>LoginPg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906302123030_InitialCreated.cs" />
+    <Compile Include="Migrations\201906302123030_InitialCreated.Designer.cs">
+      <DependentUpon>201906302123030_InitialCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\Costumer.cs" />
     <Compile Include="Model\Order.cs" />
@@ -76,6 +87,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\LoginPg.resx">
       <DependentUpon>LoginPg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906302123030_InitialCreated.resx">
+      <DependentUpon>201906302123030_InitialCreated.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

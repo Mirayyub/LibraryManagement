@@ -8,3 +8,9 @@ C:\Users\User\source\repos\LibraryManagement\LibraryManagement\bin\Debug\Library
 C:\Users\User\source\repos\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.pdb
 C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.exe
 C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\bin\Debug\EntityFramework.dll
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\bin\Debug\EntityFramework.xml
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CopyComplete
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Migrations.InitialCreated.resources
