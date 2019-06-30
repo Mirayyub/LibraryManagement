@@ -1,0 +1,10 @@
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csprojAssemblyReference.cache
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.Login.resources
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Properties.Resources.resources
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.GenerateResource.cache
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe.config
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.exe
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\bin\Debug\LibraryManagement.pdb
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.exe
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
