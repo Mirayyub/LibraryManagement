@@ -14,3 +14,4 @@ C:\Users\User\source\repos\LibraryManagement\LibraryManagement\bin\Debug\EntityF
 C:\Users\User\source\repos\LibraryManagement\LibraryManagement\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CopyComplete
 C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Migrations.InitialCreated.resources
+C:\Users\User\source\repos\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.BookPg.resources
