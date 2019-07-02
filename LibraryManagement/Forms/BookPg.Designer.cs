@@ -189,6 +189,7 @@
             // 
             // btnSearchBook
             // 
+            this.btnSearchBook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearchBook.Location = new System.Drawing.Point(550, 100);
             this.btnSearchBook.Name = "btnSearchBook";
             this.btnSearchBook.Size = new System.Drawing.Size(100, 23);

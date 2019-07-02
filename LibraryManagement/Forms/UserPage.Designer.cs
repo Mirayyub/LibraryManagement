@@ -34,6 +34,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LblFirstName = new System.Windows.Forms.Label();
             this.TxtFirstName = new System.Windows.Forms.TextBox();
             this.TxtLastName = new System.Windows.Forms.TextBox();
@@ -42,12 +43,13 @@
             this.LblEmail = new System.Windows.Forms.Label();
             this.TxtUserName = new System.Windows.Forms.TextBox();
             this.LblUserName = new System.Windows.Forms.Label();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.LblPassword = new System.Windows.Forms.Label();
             this.BtnAddUser = new System.Windows.Forms.Button();
             this.BtnUserUpdate = new System.Windows.Forms.Button();
             this.BtnUserDelete = new System.Windows.Forms.Button();
+            this.TxtSearchUser = new System.Windows.Forms.TextBox();
+            this.BtnSearchUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,6 +70,7 @@
             this.dgvUsersList.Name = "dgvUsersList";
             this.dgvUsersList.Size = new System.Drawing.Size(676, 178);
             this.dgvUsersList.TabIndex = 0;
+            this.dgvUsersList.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvUsersList_RowHeaderMouseDoubleClick);
             // 
             // Column1
             // 
@@ -94,6 +97,12 @@
             // 
             this.Column5.HeaderText = "Elektron Ünvan";
             this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Şifrə";
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
             // 
             // LblFirstName
             // 
@@ -159,12 +168,6 @@
             this.LblUserName.TabIndex = 7;
             this.LblUserName.Text = "İstifadəçi Adı*";
             // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Şifrə";
-            this.Column6.Name = "Column6";
-            this.Column6.Visible = false;
-            // 
             // TxtPassword
             // 
             this.TxtPassword.Location = new System.Drawing.Point(345, 135);
@@ -183,6 +186,7 @@
             // 
             // BtnAddUser
             // 
+            this.BtnAddUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAddUser.Location = new System.Drawing.Point(345, 59);
             this.BtnAddUser.Name = "BtnAddUser";
             this.BtnAddUser.Size = new System.Drawing.Size(100, 23);
@@ -194,17 +198,20 @@
             // BtnUserUpdate
             // 
             this.BtnUserUpdate.BackColor = System.Drawing.Color.Lime;
-            this.BtnUserUpdate.Location = new System.Drawing.Point(377, 58);
+            this.BtnUserUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnUserUpdate.Location = new System.Drawing.Point(345, 61);
             this.BtnUserUpdate.Name = "BtnUserUpdate";
             this.BtnUserUpdate.Size = new System.Drawing.Size(100, 23);
             this.BtnUserUpdate.TabIndex = 12;
             this.BtnUserUpdate.Text = "Yenilə";
             this.BtnUserUpdate.UseVisualStyleBackColor = false;
             this.BtnUserUpdate.Visible = false;
+            this.BtnUserUpdate.Click += new System.EventHandler(this.BtnUserUpdate_Click);
             // 
             // BtnUserDelete
             // 
             this.BtnUserDelete.BackColor = System.Drawing.Color.Crimson;
+            this.BtnUserDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnUserDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnUserDelete.Location = new System.Drawing.Point(345, 88);
             this.BtnUserDelete.Name = "BtnUserDelete";
@@ -213,12 +220,35 @@
             this.BtnUserDelete.Text = "Sil";
             this.BtnUserDelete.UseVisualStyleBackColor = false;
             this.BtnUserDelete.Visible = false;
+            this.BtnUserDelete.Click += new System.EventHandler(this.BtnUserDelete_Click);
+            // 
+            // TxtSearchUser
+            // 
+            this.TxtSearchUser.Location = new System.Drawing.Point(492, 73);
+            this.TxtSearchUser.Name = "TxtSearchUser";
+            this.TxtSearchUser.Size = new System.Drawing.Size(100, 20);
+            this.TxtSearchUser.TabIndex = 14;
+            // 
+            // BtnSearchUser
+            // 
+            this.BtnSearchUser.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BtnSearchUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSearchUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtnSearchUser.Location = new System.Drawing.Point(492, 99);
+            this.BtnSearchUser.Name = "BtnSearchUser";
+            this.BtnSearchUser.Size = new System.Drawing.Size(100, 40);
+            this.BtnSearchUser.TabIndex = 15;
+            this.BtnSearchUser.Text = "Axtar";
+            this.BtnSearchUser.UseVisualStyleBackColor = false;
+            this.BtnSearchUser.Click += new System.EventHandler(this.BtnSearchUser_Click);
             // 
             // UserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 410);
+            this.Controls.Add(this.BtnSearchUser);
+            this.Controls.Add(this.TxtSearchUser);
             this.Controls.Add(this.BtnUserDelete);
             this.Controls.Add(this.BtnUserUpdate);
             this.Controls.Add(this.BtnAddUser);
@@ -263,5 +293,7 @@
         private System.Windows.Forms.Button BtnAddUser;
         private System.Windows.Forms.Button BtnUserUpdate;
         private System.Windows.Forms.Button BtnUserDelete;
+        private System.Windows.Forms.TextBox TxtSearchUser;
+        private System.Windows.Forms.Button BtnSearchUser;
     }
 }

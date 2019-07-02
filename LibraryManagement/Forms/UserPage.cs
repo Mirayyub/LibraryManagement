@@ -167,5 +167,93 @@ namespace LibraryManagement.Forms
             MessageBox.Show("Yeni İstifadəçi Əlavə Olundu!");
 
         }
+
+        private void BtnSearchUser_Click(object sender, EventArgs e)
+        {
+            ButtonUserReset();
+            dgvUsersList.Rows.Clear();
+
+
+            List<User> users = _context.Users.Where(u => u.UserName.Contains(TxtSearchUser.Text)).ToList();
+
+            foreach (var item in users)
+            {
+                dgvUsersList.Rows.Add(item.Id,
+                                     item.UserName,
+                                     item.FirstName,
+                                     item.LastName,
+                                     item.Email);
+            }
+
+
+
+        }
+
+        private void BtnUserDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult r = MessageBox.Show("İstifadəçi Haqqında Məlumatlar Silinsin?", "İstifadəçi Silinsin", MessageBoxButtons.YesNo);
+
+            if (r == DialogResult.Yes)
+            {
+                _context.Users.Remove(_selecteduser);
+
+                _context.SaveChanges();
+
+
+                FillUserData();
+                ResetUserForm();
+                ButtonUserReset();
+
+                MessageBox.Show("İstifadəçi Haqqında Məlumatlar silindi.", "Silindi");
+            }
+
+        }
+
+        private void BtnUserUpdate_Click(object sender, EventArgs e)
+        {
+            if (!Validation())
+            {
+                return;
+            }
+
+            _selecteduser.FirstName = TxtFirstName.Text;
+            _selecteduser.LastName = TxtLastName.Text;
+            _selecteduser.Password = TxtPassword.Text;
+            _selecteduser.UserName = TxtUserName.Text;
+            _selecteduser.Email = TxtEmail.Text;
+
+            _context.SaveChanges();
+
+            FillUserData();
+            ResetUserForm();
+            ButtonUserReset();
+
+            MessageBox.Show("Seçilmiş İstifadəçi Haqqında Məlumatlar Yeniləndi", "Yeniləndi");
+
+        }
+
+        private void DgvUsersList_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            BtnAddUser.Visible = false;
+            BtnUserDelete.Visible = true;
+            BtnUserUpdate.Visible = true;
+
+            ResetUserForm();
+
+            foreach (var item in _context.Books.ToList())
+            {
+
+                int Id = Convert.ToInt32(dgvUsersList.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                _selecteduser = _context.Users.Find(Id);
+
+                TxtFirstName.Text = _selecteduser.FirstName;
+                TxtLastName.Text = _selecteduser.LastName;
+                TxtEmail.Text = _selecteduser.Email;
+                TxtUserName.Text = _selecteduser.UserName;
+                //TxtPassword.Text = _selecteduser.Password; Şifrə gizli saxlanılmalıdır!
+
+            }
+        }
     }
 }
