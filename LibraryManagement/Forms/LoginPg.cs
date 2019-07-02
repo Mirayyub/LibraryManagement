@@ -26,10 +26,10 @@ namespace LibraryManagement.Forms
         {
 
             this.Hide();
-            DashBoard ss = new DashBoard();
+            BookPg ss = new BookPg();
 
             ss.Show();
-
+            
           
         }
     }

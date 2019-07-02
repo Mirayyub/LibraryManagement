@@ -50,7 +50,9 @@
             // 
             // dgvBook
             // 
+            this.dgvBook.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBook.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvBook.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -61,6 +63,7 @@
             this.dgvBook.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvBook.Location = new System.Drawing.Point(0, 165);
             this.dgvBook.Name = "dgvBook";
+            this.dgvBook.ReadOnly = true;
             this.dgvBook.Size = new System.Drawing.Size(715, 124);
             this.dgvBook.TabIndex = 0;
             this.dgvBook.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvBook_RowHeaderMouseDoubleClick);
@@ -69,22 +72,26 @@
             // 
             this.Column1.HeaderText = "Id";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Adı";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Qiyməti";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Sayı";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // LblBookName
             // 
@@ -148,7 +155,7 @@
             // 
             // BtnBookUpdate
             // 
-            this.BtnBookUpdate.BackColor = System.Drawing.Color.Turquoise;
+            this.BtnBookUpdate.BackColor = System.Drawing.Color.Lime;
             this.BtnBookUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBookUpdate.Location = new System.Drawing.Point(428, 36);
             this.BtnBookUpdate.Name = "BtnBookUpdate";

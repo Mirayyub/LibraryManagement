@@ -17,7 +17,9 @@ namespace LibraryManagement.Forms
     {
         private readonly LibraryContext _context;
 
-        private LibraryManagement.Model.Book _selectedBook;
+        private Book _selectedbook;
+
+
         public BookPg()
         {
             InitializeComponent();
@@ -93,7 +95,7 @@ namespace LibraryManagement.Forms
                 return;
             }
 
-            LibraryManagement.Model.Book book = new LibraryManagement.Model.Book();
+            Book book = new Book();
 
             book.Name = TxtBookName.Text;
             book.Price = Convert.ToInt32(TxtBookPrice.Text);
@@ -101,7 +103,7 @@ namespace LibraryManagement.Forms
 
 
 
-            List<LibraryManagement.Model.Book> boook = _context.Books.Where(b => b.Name.Contains(TxtBookName.Text)).ToList();
+            List<Book> boook = _context.Books.Where(b => b.Name.Contains(TxtBookName.Text)).ToList();
 
             foreach (var item in boook)
             {
@@ -130,9 +132,9 @@ namespace LibraryManagement.Forms
                 return;
             }
 
-            _selectedBook.Name = TxtBookName.Text;
-            _selectedBook.Price = Convert.ToDecimal(TxtBookPrice.Text);
-            _selectedBook.Count = Convert.ToInt32(NmrCount.Text);
+            _selectedbook.Name = TxtBookName.Text;
+            _selectedbook.Price = Convert.ToDecimal(TxtBookPrice.Text);
+            _selectedbook.Count = Convert.ToInt32(NmrCount.Text);
 
             _context.SaveChanges();
 
@@ -159,11 +161,11 @@ namespace LibraryManagement.Forms
 
                 int Id = Convert.ToInt32(dgvBook.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                _selectedBook = _context.Books.Find(Id);
+                _selectedbook = _context.Books.Find(Id);
 
-                TxtBookName.Text = _selectedBook.Name;
-                TxtBookPrice.Text = _selectedBook.Price.ToString();
-                NmrCount.Value = _selectedBook.Count;
+                TxtBookName.Text = _selectedbook.Name;
+                TxtBookPrice.Text = _selectedbook.Price.ToString();
+                NmrCount.Value = _selectedbook.Count;
 
             }
 
@@ -177,7 +179,7 @@ namespace LibraryManagement.Forms
 
             if (r == DialogResult.Yes)
             {
-                _context.Books.Remove(_selectedBook);
+                _context.Books.Remove(_selectedbook);
 
                 _context.SaveChanges();
 
@@ -198,7 +200,7 @@ namespace LibraryManagement.Forms
             dgvBook.Rows.Clear();
 
 
-            List<LibraryManagement.Model.Book> books = _context.Books.Where(b => b.Name.Contains(TxtSerachBox.Text)).ToList();
+            List<Book> books = _context.Books.Where(b => b.Name.Contains(TxtSerachBox.Text)).ToList();
 
             foreach (var item in books)
             {

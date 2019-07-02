@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>LibraryManagement</RootNamespace>
     <AssemblyName>LibraryManagement</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,12 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\LibraryContext.cs" />
-    <Compile Include="Forms\Book.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Book.Designer.cs">
-      <DependentUpon>Book.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\BookPg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +72,12 @@
     </Compile>
     <Compile Include="Forms\LoginPg.Designer.cs">
       <DependentUpon>LoginPg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserPage.Designer.cs">
+      <DependentUpon>UserPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201906302123030_InitialCreated.cs" />
     <Compile Include="Migrations\201906302123030_InitialCreated.Designer.cs">
@@ -97,6 +98,9 @@
     <EmbeddedResource Include="Forms\LoginPg.resx">
       <DependentUpon>LoginPg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserPage.resx">
+      <DependentUpon>UserPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906302123030_InitialCreated.resx">
       <DependentUpon>201906302123030_InitialCreated.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +112,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
