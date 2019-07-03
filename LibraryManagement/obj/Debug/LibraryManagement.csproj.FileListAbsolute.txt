@@ -50,3 +50,5 @@ C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug
 C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CopyComplete
 C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.exe
 C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.pdb
+C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.CostumerPg.resources
+C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.DashBoard.resources

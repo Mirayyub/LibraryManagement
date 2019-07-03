@@ -50,10 +50,12 @@
             // 
             // dgvBook
             // 
+            this.dgvBook.AllowUserToResizeColumns = false;
+            this.dgvBook.AllowUserToResizeRows = false;
             this.dgvBook.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBook.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvBook.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
@@ -157,7 +159,7 @@
             // 
             this.BtnBookUpdate.BackColor = System.Drawing.Color.Lime;
             this.BtnBookUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBookUpdate.Location = new System.Drawing.Point(428, 36);
+            this.BtnBookUpdate.Location = new System.Drawing.Point(428, 69);
             this.BtnBookUpdate.Name = "BtnBookUpdate";
             this.BtnBookUpdate.Size = new System.Drawing.Size(75, 23);
             this.BtnBookUpdate.TabIndex = 8;
@@ -215,7 +217,10 @@
             this.Controls.Add(this.TxtBookName);
             this.Controls.Add(this.LblBookName);
             this.Controls.Add(this.dgvBook);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "BookPg";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BookPg";
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmrCount)).EndInit();

@@ -66,9 +66,10 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dgvUsersList.Location = new System.Drawing.Point(12, 220);
+            this.dgvUsersList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvUsersList.Location = new System.Drawing.Point(0, 232);
             this.dgvUsersList.Name = "dgvUsersList";
-            this.dgvUsersList.Size = new System.Drawing.Size(676, 178);
+            this.dgvUsersList.Size = new System.Drawing.Size(700, 178);
             this.dgvUsersList.TabIndex = 0;
             this.dgvUsersList.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvUsersList_RowHeaderMouseDoubleClick);
             // 
@@ -264,6 +265,7 @@
             this.Controls.Add(this.LblFirstName);
             this.Controls.Add(this.dgvUsersList);
             this.Name = "UserPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserPage";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).EndInit();
             this.ResumeLayout(false);

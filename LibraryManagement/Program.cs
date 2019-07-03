@@ -17,7 +17,7 @@ namespace LibraryManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UserPage());
+            Application.Run(new DashBoard());
         }
     }
 }

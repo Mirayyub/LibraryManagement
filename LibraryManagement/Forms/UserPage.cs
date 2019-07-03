@@ -62,8 +62,8 @@ namespace LibraryManagement.Forms
             }
             if (string.IsNullOrEmpty(TxtLastName.Text))
             {
-                LblFirstName.ForeColor = Color.Red;
-                LblLastName.ForeColor = SystemColors.ControlText;
+                LblLastName.ForeColor = Color.Red;
+                LblFirstName.ForeColor = SystemColors.ControlText;
                 LblPassword.ForeColor = SystemColors.ControlText;
                 LblUserName.ForeColor = SystemColors.ControlText;
                 LblEmail.ForeColor = SystemColors.ControlText;
@@ -240,7 +240,7 @@ namespace LibraryManagement.Forms
 
             ResetUserForm();
 
-            foreach (var item in _context.Books.ToList())
+            foreach (var item in _context.Users.ToList())
             {
 
                 int Id = Convert.ToInt32(dgvUsersList.Rows[e.RowIndex].Cells[0].Value.ToString());
