@@ -145,8 +145,9 @@
             // 
             // BtnAddBook
             // 
-            this.BtnAddBook.BackColor = System.Drawing.Color.Turquoise;
+            this.BtnAddBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(155)))), ((int)(((byte)(255)))));
             this.BtnAddBook.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAddBook.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnAddBook.Location = new System.Drawing.Point(428, 69);
             this.BtnAddBook.Name = "BtnAddBook";
             this.BtnAddBook.Size = new System.Drawing.Size(75, 23);
@@ -157,9 +158,10 @@
             // 
             // BtnBookUpdate
             // 
-            this.BtnBookUpdate.BackColor = System.Drawing.Color.Lime;
+            this.BtnBookUpdate.BackColor = System.Drawing.Color.ForestGreen;
             this.BtnBookUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBookUpdate.Location = new System.Drawing.Point(428, 69);
+            this.BtnBookUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtnBookUpdate.Location = new System.Drawing.Point(428, 66);
             this.BtnBookUpdate.Name = "BtnBookUpdate";
             this.BtnBookUpdate.Size = new System.Drawing.Size(75, 23);
             this.BtnBookUpdate.TabIndex = 8;
@@ -170,7 +172,7 @@
             // 
             // BtnBookDelete
             // 
-            this.BtnBookDelete.BackColor = System.Drawing.Color.Maroon;
+            this.BtnBookDelete.BackColor = System.Drawing.Color.Firebrick;
             this.BtnBookDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBookDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnBookDelete.Location = new System.Drawing.Point(428, 100);
@@ -191,13 +193,15 @@
             // 
             // btnSearchBook
             // 
+            this.btnSearchBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(155)))), ((int)(((byte)(255)))));
             this.btnSearchBook.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchBook.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnSearchBook.Location = new System.Drawing.Point(550, 100);
             this.btnSearchBook.Name = "btnSearchBook";
             this.btnSearchBook.Size = new System.Drawing.Size(100, 23);
             this.btnSearchBook.TabIndex = 11;
             this.btnSearchBook.Text = "Axtar";
-            this.btnSearchBook.UseVisualStyleBackColor = true;
+            this.btnSearchBook.UseVisualStyleBackColor = false;
             this.btnSearchBook.Click += new System.EventHandler(this.BtnSearchBook_Click);
             // 
             // BookPg

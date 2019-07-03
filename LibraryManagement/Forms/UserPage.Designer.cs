@@ -187,20 +187,23 @@
             // 
             // BtnAddUser
             // 
+            this.BtnAddUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(155)))), ((int)(((byte)(255)))));
             this.BtnAddUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAddUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnAddUser.Location = new System.Drawing.Point(345, 59);
             this.BtnAddUser.Name = "BtnAddUser";
             this.BtnAddUser.Size = new System.Drawing.Size(100, 23);
             this.BtnAddUser.TabIndex = 11;
             this.BtnAddUser.Text = "Əlavə et";
-            this.BtnAddUser.UseVisualStyleBackColor = true;
+            this.BtnAddUser.UseVisualStyleBackColor = false;
             this.BtnAddUser.Click += new System.EventHandler(this.BtnAddUser_Click);
             // 
             // BtnUserUpdate
             // 
-            this.BtnUserUpdate.BackColor = System.Drawing.Color.Lime;
+            this.BtnUserUpdate.BackColor = System.Drawing.Color.ForestGreen;
             this.BtnUserUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnUserUpdate.Location = new System.Drawing.Point(345, 61);
+            this.BtnUserUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtnUserUpdate.Location = new System.Drawing.Point(345, 59);
             this.BtnUserUpdate.Name = "BtnUserUpdate";
             this.BtnUserUpdate.Size = new System.Drawing.Size(100, 23);
             this.BtnUserUpdate.TabIndex = 12;
@@ -211,7 +214,7 @@
             // 
             // BtnUserDelete
             // 
-            this.BtnUserDelete.BackColor = System.Drawing.Color.Crimson;
+            this.BtnUserDelete.BackColor = System.Drawing.Color.Firebrick;
             this.BtnUserDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnUserDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnUserDelete.Location = new System.Drawing.Point(345, 88);
@@ -232,7 +235,7 @@
             // 
             // BtnSearchUser
             // 
-            this.BtnSearchUser.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BtnSearchUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(155)))), ((int)(((byte)(255)))));
             this.BtnSearchUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSearchUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnSearchUser.Location = new System.Drawing.Point(492, 99);
@@ -264,6 +267,8 @@
             this.Controls.Add(this.TxtFirstName);
             this.Controls.Add(this.LblFirstName);
             this.Controls.Add(this.dgvUsersList);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "UserPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserPage";
