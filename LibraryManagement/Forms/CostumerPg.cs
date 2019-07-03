@@ -147,14 +147,14 @@ namespace LibraryManagement.Forms
             dgvCostumerlist.Rows.Clear();
 
 
-            List<Costumer> costs = _context.Costumers.Where(c => c.FirstName.Contains(TxtFirstName.Text)).ToList();
+            List<Costumer> costs = _context.Costumers.Where(c => c.FirstName.Contains(TxtSearchCostumer.Text)).ToList();
 
             foreach (var item in costs)
             {
-                dgvCostumerlist.Rows.Add(item.Id,
-                                     item.PhoneNo,
+                dgvCostumerlist.Rows.Add(item.Id,                                     
                                      item.FirstName,
                                      item.LastName,
+                                     item.PhoneNo,
                                      item.Email);
             }
 

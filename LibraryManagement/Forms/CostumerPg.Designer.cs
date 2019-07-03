@@ -78,7 +78,7 @@
             this.BtnCostumerDelete.BackColor = System.Drawing.Color.Firebrick;
             this.BtnCostumerDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCostumerDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnCostumerDelete.Location = new System.Drawing.Point(139, 140);
+            this.BtnCostumerDelete.Location = new System.Drawing.Point(139, 91);
             this.BtnCostumerDelete.Name = "BtnCostumerDelete";
             this.BtnCostumerDelete.Size = new System.Drawing.Size(100, 43);
             this.BtnCostumerDelete.TabIndex = 29;
@@ -92,7 +92,7 @@
             this.BtnCostumerUpdate.BackColor = System.Drawing.Color.ForestGreen;
             this.BtnCostumerUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCostumerUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnCostumerUpdate.Location = new System.Drawing.Point(139, 87);
+            this.BtnCostumerUpdate.Location = new System.Drawing.Point(139, 146);
             this.BtnCostumerUpdate.Name = "BtnCostumerUpdate";
             this.BtnCostumerUpdate.Size = new System.Drawing.Size(100, 40);
             this.BtnCostumerUpdate.TabIndex = 28;
@@ -106,7 +106,7 @@
             this.BtnCostumerAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(155)))), ((int)(((byte)(255)))));
             this.BtnCostumerAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCostumerAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnCostumerAdd.Location = new System.Drawing.Point(139, 86);
+            this.BtnCostumerAdd.Location = new System.Drawing.Point(139, 146);
             this.BtnCostumerAdd.Name = "BtnCostumerAdd";
             this.BtnCostumerAdd.Size = new System.Drawing.Size(100, 41);
             this.BtnCostumerAdd.TabIndex = 27;
@@ -240,8 +240,8 @@
             this.grpboxCostumer.Controls.Add(this.TxtLastName);
             this.grpboxCostumer.Controls.Add(this.BtnCostumerDelete);
             this.grpboxCostumer.Controls.Add(this.LblPhoneNumber);
-            this.grpboxCostumer.Controls.Add(this.BtnCostumerUpdate);
             this.grpboxCostumer.Controls.Add(this.TxtPhoneNumber);
+            this.grpboxCostumer.Controls.Add(this.BtnCostumerUpdate);
             this.grpboxCostumer.Controls.Add(this.BtnCostumerAdd);
             this.grpboxCostumer.Controls.Add(this.LblEmail);
             this.grpboxCostumer.Controls.Add(this.TxtEmail);

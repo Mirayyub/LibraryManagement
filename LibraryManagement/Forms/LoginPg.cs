@@ -26,7 +26,7 @@ namespace LibraryManagement.Forms
         {
 
             this.Hide();
-            BookPg ss = new BookPg();
+            DashBoard ss = new DashBoard();
 
             ss.Show();
             
