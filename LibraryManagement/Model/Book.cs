@@ -14,7 +14,7 @@ namespace LibraryManagement.Model
     {
         public Book()
         {
-            costumers = new HashSet<Costumer>();
+            
 
             orderitems = new HashSet<OrderItem>();
         }
@@ -27,10 +27,10 @@ namespace LibraryManagement.Model
         [Required]
         public string Name { get; set; }
 
-        [Required, Column(TypeName = "money")]
+        [Required]
         public decimal Price { get; set; }
 
-        public ICollection<Costumer> costumers { get; set; }
+       
 
         public ICollection<OrderItem> orderitems { get; set; }
     }

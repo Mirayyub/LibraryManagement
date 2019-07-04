@@ -184,7 +184,16 @@ namespace LibraryManagement.Forms
                                      item.LastName,
                                      item.Email);
             }
+            List<User> usersss = _context.Users.Where(u => u.Email.Contains(TxtEmailSearch.Text)).ToList();
 
+            foreach (var item in usersss)
+            {
+                dgvUsersList.Rows.Add(item.Id,
+                                     item.UserName,
+                                     item.FirstName,
+                                     item.LastName,
+                                     item.Email);
+            }
 
 
         }

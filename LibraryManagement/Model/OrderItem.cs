@@ -13,20 +13,22 @@ namespace LibraryManagement.Model
     {
         public int Id { get; set; }
 
-
-        [Required]
-        public int CostumerId { get; set; }
-
-        public virtual Costumer Costumer { get; set; }
-
         [Required]
         public int BookId { get; set; }
 
         public virtual Book Book { get; set; }
 
         [Required]
-        public DateTime Date { get; set; }
+        public int Count { get; set; }
 
+        [Required]
+        public decimal Price { get; set; }
+
+        [Required]
+        public DateTime ReturnDate { get; set; }
+
+        
+        [Required]
         public int OrderInfoId { get; set; }
 
         public virtual OrderInfo OrderInfo { get; set; }

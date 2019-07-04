@@ -30,7 +30,6 @@ namespace LibraryManagement.Forms
         private void FillBookData()
         {
             dgvBook.Rows.Clear();
-
             foreach (var item in _context.Books.ToList())
             {
                 dgvBook.Rows.Add(item.Id,
@@ -38,9 +37,11 @@ namespace LibraryManagement.Forms
                                  item.Price,
                                  item.Count);
             }
+
+            
         }
 
-        private bool Validation()
+            private bool Validation()
         {
             if (string.IsNullOrEmpty(TxtBookName.Text))
             {

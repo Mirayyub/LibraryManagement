@@ -43,7 +43,6 @@ C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug
 C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.BookPg.resources
 C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.Login.resources
 C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.UserPage.resources
-C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Migrations.InitialCreated.resources
 C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Properties.Resources.resources
 C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.GenerateResource.cache
 C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
@@ -54,3 +53,6 @@ C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug
 C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.DashBoard.resources
 C:\Users\Mir AyyubAb\Desktop\Library Management\LibraryManagement\obj\Debug\LibraryManagement.Forms.CostumerPg.resources
 C:\Users\Mir AyyubAb\Desktop\Library Management\LibraryManagement\obj\Debug\LibraryManagement.Forms.DashBoard.resources
+C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Migrations.init.resources
+C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Migrations.AddOrderInfo.resources
+C:\Users\User\Desktop\Course\C#\C# LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Migrations.removeprice.resources

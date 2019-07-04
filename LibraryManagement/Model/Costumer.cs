@@ -31,5 +31,7 @@ namespace LibraryManagement.Model
 
         public ICollection<OrderItem> orderitems { get; set; }
 
+        public ICollection<Order> orders { get; set; }
+
     }
 }

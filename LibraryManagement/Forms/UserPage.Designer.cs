@@ -52,6 +52,8 @@
             this.TxtFirstName = new System.Windows.Forms.TextBox();
             this.LblFirstName = new System.Windows.Forms.Label();
             this.LblSearchUserName = new System.Windows.Forms.Label();
+            this.TxtEmailSearch = new System.Windows.Forms.TextBox();
+            this.LblEmailSearch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).BeginInit();
             this.grpboxUser.SuspendLayout();
             this.SuspendLayout();
@@ -177,7 +179,7 @@
             this.BtnSearchUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(155)))), ((int)(((byte)(255)))));
             this.BtnSearchUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSearchUser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnSearchUser.Location = new System.Drawing.Point(557, 78);
+            this.BtnSearchUser.Location = new System.Drawing.Point(557, 106);
             this.BtnSearchUser.Name = "BtnSearchUser";
             this.BtnSearchUser.Size = new System.Drawing.Size(100, 36);
             this.BtnSearchUser.TabIndex = 15;
@@ -280,11 +282,29 @@
             this.LblSearchUserName.TabIndex = 17;
             this.LblSearchUserName.Text = "İstifadəçi Adı";
             // 
+            // TxtEmailSearch
+            // 
+            this.TxtEmailSearch.Location = new System.Drawing.Point(557, 73);
+            this.TxtEmailSearch.Name = "TxtEmailSearch";
+            this.TxtEmailSearch.Size = new System.Drawing.Size(100, 20);
+            this.TxtEmailSearch.TabIndex = 18;
+            // 
+            // LblEmailSearch
+            // 
+            this.LblEmailSearch.AutoSize = true;
+            this.LblEmailSearch.Location = new System.Drawing.Point(470, 76);
+            this.LblEmailSearch.Name = "LblEmailSearch";
+            this.LblEmailSearch.Size = new System.Drawing.Size(81, 13);
+            this.LblEmailSearch.TabIndex = 19;
+            this.LblEmailSearch.Text = "Elektron Ünvan";
+            // 
             // UserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 451);
+            this.Controls.Add(this.LblEmailSearch);
+            this.Controls.Add(this.TxtEmailSearch);
             this.Controls.Add(this.LblSearchUserName);
             this.Controls.Add(this.grpboxUser);
             this.Controls.Add(this.BtnSearchUser);
@@ -329,5 +349,7 @@
         private System.Windows.Forms.TextBox TxtFirstName;
         private System.Windows.Forms.Label LblFirstName;
         private System.Windows.Forms.Label LblSearchUserName;
+        private System.Windows.Forms.TextBox TxtEmailSearch;
+        private System.Windows.Forms.Label LblEmailSearch;
     }
 }
