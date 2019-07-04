@@ -97,6 +97,14 @@
     <Compile Include="Migrations\201907041021143_removeprice.Designer.cs">
       <DependentUpon>201907041021143_removeprice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907041519277_AcademyComputer.cs" />
+    <Compile Include="Migrations\201907041519277_AcademyComputer.Designer.cs">
+      <DependentUpon>201907041519277_AcademyComputer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907041615418_CallOrder.cs" />
+    <Compile Include="Migrations\201907041615418_CallOrder.Designer.cs">
+      <DependentUpon>201907041615418_CallOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Configuration.cs" />
     <Compile Include="Model\Book.cs" />
@@ -130,6 +138,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907041021143_removeprice.resx">
       <DependentUpon>201907041021143_removeprice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907041519277_AcademyComputer.resx">
+      <DependentUpon>201907041519277_AcademyComputer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907041615418_CallOrder.resx">
+      <DependentUpon>201907041615418_CallOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

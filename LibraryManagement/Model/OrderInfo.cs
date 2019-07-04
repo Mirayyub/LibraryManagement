@@ -22,7 +22,7 @@ namespace LibraryManagement.Model
         public int Count { get; set; }
 
 
-        [Required]
+        
         public decimal Price { get; set; }
 
 

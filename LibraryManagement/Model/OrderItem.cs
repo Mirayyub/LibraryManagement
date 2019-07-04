@@ -27,7 +27,11 @@ namespace LibraryManagement.Model
         [Required]
         public DateTime ReturnDate { get; set; }
 
-        
+        [Required]
+        public int CustomerId { get; set; }
+
+        public Costumer Costumer { get; set; }
+
         [Required]
         public int OrderInfoId { get; set; }
 

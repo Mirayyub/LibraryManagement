@@ -121,23 +121,24 @@ namespace LibraryManagement.Forms
 
             CmbBookOrder.Text = string.Empty;
             DateReturnDay.Value = DateTime.Now;
-            NmrBookCount.Text = " ";
-            TxtPriceOrder.Text = " ";
+            NmrBookCount.Text = "1";
+            LblPriceOrderLbl.Text = " ";
+
         }
 
-        private void DBookMoneyScreen()
+        private void BookMoneyScreen()
         {
             int Id = _context.Books.FirstOrDefault(b => b.Name == CmbBookOrder.Text).Id;
             _selectedbook = _context.Books.Find(Id);
-            TxtPriceOrder.Text = _selectedbook.Price.ToString();
+            LblPriceOrderLbl.Text = _selectedbook.Price.ToString();
 
         }
         
         private void CmbBookOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DBookMoneyScreen();
+            BookMoneyScreen();
             DateReturnDay.Enabled = true;
-            TxtPriceOrder.Enabled = true;
+            LblPriceOrderLbl.Enabled = true;
             NmrBookCount.Enabled = true;
             
         }
@@ -145,9 +146,18 @@ namespace LibraryManagement.Forms
 
         private void ResetForm()
         {
-           
-            NmrBookCount.Text = " ";
-            TxtPriceOrder.Text = " ";
+
+            CmbBookOrder.Enabled = false;
+            NmrBookCount.Enabled = false;
+            DateReturnDay.Enabled = false;
+            LblPriceOrderLbl.Enabled = false;
+            CmbCostumerOrder.Enabled = true;
+            BtnSubmitOrders.Visible = false;
+            BtnAddNewOrder.Enabled = false;
+            DgvBookDashboard.Rows.Clear();
+            LblPriceAllbooks.Text = "0";
+            NmrBookCount.Text = "0";
+            LblPriceOrderLbl.Text = " ";
             CmbCostumerOrder.Text = string.Empty;            
             CmbBookOrder.Text = string.Empty;
             DateReturnDay.Value = DateTime.Now;
@@ -163,7 +173,7 @@ namespace LibraryManagement.Forms
         private void CalcMoneyCountAllBook()
         {
 
-            TxtPriceOrder.Text = (_selectedbook.Price * Convert.ToDecimal(NmrBookCount.Value)).ToString();
+            LblPriceOrderLbl.Text = (_selectedbook.Price * Convert.ToDecimal(NmrBookCount.Value)).ToString();
 
         }
 
@@ -173,6 +183,7 @@ namespace LibraryManagement.Forms
         {
             CalcMoneyCountAllBook();
             CalcMoneyFalseReturnDay();
+            BtnAddNewOrder.Enabled = true;
         }
 
 
@@ -183,39 +194,39 @@ namespace LibraryManagement.Forms
 
             if (DateReturnDay.Value <= DateTime.Now.AddDays(7))
             {
-                TxtPriceOrder.Text = (_selectedbook.Price * NmrBookCount.Value).ToString();
+                LblPriceOrderLbl.Text = (_selectedbook.Price * NmrBookCount.Value).ToString();
             }
             if (DateReturnDay.Value > DateTime.Now.AddDays(7) && DateReturnDay.Value <= DateTime.Now.AddDays(14))
             {
-                TxtPriceOrder.Text = (_selectedbook.Price * 2 * NmrBookCount.Value).ToString();
+                LblPriceOrderLbl.Text = (_selectedbook.Price * 2 * NmrBookCount.Value).ToString();
             }
             if (DateReturnDay.Value > DateTime.Now.AddDays(14) && DateReturnDay.Value <= DateTime.Now.AddDays(21))
             {
-                TxtPriceOrder.Text = (_selectedbook.Price * 3 * NmrBookCount.Value).ToString();
+                LblPriceOrderLbl.Text = (_selectedbook.Price * 3 * NmrBookCount.Value).ToString();
             }
             if (DateReturnDay.Value > DateTime.Now.AddDays(21) && DateReturnDay.Value <= DateTime.Now.AddMonths(1))
             {
-                TxtPriceOrder.Text = (_selectedbook.Price * 4 * NmrBookCount.Value).ToString();
+                LblPriceOrderLbl.Text = (_selectedbook.Price * 4 * NmrBookCount.Value).ToString();
             }
             if (DateReturnDay.Value > DateTime.Now.AddMonths(1) && DateReturnDay.Value <= DateTime.Now.AddMonths(3))
             {
-                TxtPriceOrder.Text = (_selectedbook.Price * 5 * NmrBookCount.Value).ToString();
+                LblPriceOrderLbl.Text = (_selectedbook.Price * 5 * NmrBookCount.Value).ToString();
             }
             if (DateReturnDay.Value > DateTime.Now.AddMonths(3) && DateReturnDay.Value <= DateTime.Now.AddMonths(4))
             {
-                TxtPriceOrder.Text = (_selectedbook.Price * 6 * NmrBookCount.Value).ToString();
+                LblPriceOrderLbl.Text = (_selectedbook.Price * 6 * NmrBookCount.Value).ToString();
             }
             if (DateReturnDay.Value > DateTime.Now.AddMonths(4) && DateReturnDay.Value <= DateTime.Now.AddMonths(5))
             {
-                TxtPriceOrder.Text = (_selectedbook.Price * 7 * NmrBookCount.Value).ToString();
+                LblPriceOrderLbl.Text = (_selectedbook.Price * 7 * NmrBookCount.Value).ToString();
             }
             if (DateReturnDay.Value > DateTime.Now.AddMonths(5) && DateReturnDay.Value <= DateTime.Now.AddMonths(6))
             {
-                TxtPriceOrder.Text = (_selectedbook.Price * 8 * NmrBookCount.Value).ToString();
+                LblPriceOrderLbl.Text = (_selectedbook.Price * 8 * NmrBookCount.Value).ToString();
             }
             if (DateReturnDay.Value > DateTime.Now.AddMonths(6) && DateReturnDay.Value <= DateTime.Now.AddMonths(7))
             {
-                TxtPriceOrder.Text = (_selectedbook.Price * 10 * NmrBookCount.Value).ToString();
+                LblPriceOrderLbl.Text = (_selectedbook.Price * 10 * NmrBookCount.Value).ToString();
             }
 
         }
@@ -242,13 +253,14 @@ namespace LibraryManagement.Forms
 
         private void BtnAddNewOrder_Click(object sender, EventArgs e)
         {
+
             if (!ValidateBookCountOnStock())
             {
 
                 return;
             }
             
-            var money = Convert.ToDecimal(TxtPriceOrder.Text);
+            var money = Convert.ToDecimal(LblPriceOrderLbl.Text);
 
             DgvBookDashboard.Rows.Add(_selectedbook.Id, _selectedbook.Name, NmrBookCount.Value, DateReturnDay.Value, money);
 
@@ -257,14 +269,20 @@ namespace LibraryManagement.Forms
             CmbCostumerOrder.Enabled = false;
             CmbBookOrder.Text = string.Empty;
             NmrBookCount.Value = 0;
-            TxtPriceOrder.Text = " ";
+            LblPriceOrderLbl.Text = " ";
             BtnRemoveList.Visible = false;
+            BtnSubmitOrders.Visible = true;
 
             _totalmoney += money;
 
             LblPriceAllbooks.Text = _totalmoney.ToString();
 
             BtnPnlResetForm();
+            DateReturnDay.Enabled = false;
+            NmrBookCount.Enabled = false;
+            LblPriceOrderLbl.Enabled = false;
+            
+
 
         }
 
@@ -419,6 +437,33 @@ namespace LibraryManagement.Forms
         private void BtnUsersAbout_MouseLeave(object sender, EventArgs e)
         {
             BtnUsersAbout.BackColor = Color.CornflowerBlue;
+        }
+
+        private void BtnSubmitOrders_Click(object sender, EventArgs e)
+        {
+            int id = _context.Costumers.FirstOrDefault(c => c.FirstName + " " + c.LastName == CmbCostumerOrder.Text).Id;
+
+            var selectedCostumer = _context.Costumers.Find(id);
+
+            Order newOrder = new Order
+            {
+                CustomerId=selectedCostumer.Id,
+
+                CreatedDate=DateTime.Now,
+            };
+
+            _context.Orders.Add(newOrder);
+            _context.SaveChanges();
+            MessageBox.Show("Satış Müvəffəqiyyətlə yaddaşa yazıldı", "Diqqət!");
+
+
+            BtnPnlResetForm();
+            ResetForm();
+            
+
+            
+            
+
         }
     }
     

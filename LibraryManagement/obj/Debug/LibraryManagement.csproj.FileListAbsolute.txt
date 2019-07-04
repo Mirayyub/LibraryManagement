@@ -78,3 +78,26 @@ C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\D
 C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.csproj.CopyComplete
 C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.exe
 C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.pdb
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\bin\Debug\LibraryManagement.exe.config
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\bin\Debug\LibraryManagement.exe
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\bin\Debug\LibraryManagement.pdb
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\bin\Debug\EntityFramework.dll
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\bin\Debug\EntityFramework.xml
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.csprojResolveAssemblyReference.cache
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Forms.BookPg.resources
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Forms.CostumerPg.resources
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Forms.DashBoard.resources
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Forms.Login.resources
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Forms.UserPage.resources
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Migrations.init.resources
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Migrations.AddOrderInfo.resources
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Migrations.removeprice.resources
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Properties.Resources.resources
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.csproj.GenerateResource.Cache
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.exe
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.pdb
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Migrations.AcademyComputer.resources
+C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Migrations.CallOrder.resources
