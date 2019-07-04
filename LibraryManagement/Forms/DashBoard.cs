@@ -10,14 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace LibraryManagement.Forms
 {
     public partial class DashBoard : Form
     {
 
         private readonly LibraryContext _context;
-        
 
+        private Book _selectedbook;
+
+        private decimal _totalmoney = 0;
+        
         
 
         public DashBoard()
@@ -61,7 +65,7 @@ namespace LibraryManagement.Forms
             FillCustomerList();
             FillBookList();
             PnlNewOrders.Visible = true;
-            LblPriceOrder.Text = "0";
+            LblPriceAllbooks.Text = "0";
             CmbBookOrder.DropDownHeight = CmbBookOrder.Font.Height * 5;
             CmbCostumerOrder.DropDownHeight = CmbCostumerOrder.Font.Height * 5;
             BtnCreateOrder.BackColor = Color.RoyalBlue;
@@ -109,15 +113,313 @@ namespace LibraryManagement.Forms
 
         }
 
+        private void BtnPnlResetForm()
+        {
+            LblBookOrder.ForeColor = SystemColors.ControlText;
+            LblBookCount.ForeColor = SystemColors.ControlText;
+            LblDateTimeOrder.ForeColor = SystemColors.ControlText;
+
+            CmbBookOrder.Text = string.Empty;
+            DateReturnDay.Value = DateTime.Now;
+            NmrBookCount.Text = " ";
+            TxtPriceOrder.Text = " ";
+        }
+
+        private void DBookMoneyScreen()
+        {
+            int Id = _context.Books.FirstOrDefault(b => b.Name == CmbBookOrder.Text).Id;
+            _selectedbook = _context.Books.Find(Id);
+            TxtPriceOrder.Text = _selectedbook.Price.ToString();
+
+        }
+        
+        private void CmbBookOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DBookMoneyScreen();
+            DateReturnDay.Enabled = true;
+            TxtPriceOrder.Enabled = true;
+            NmrBookCount.Enabled = true;
+            
+        }
+
+
+        private void ResetForm()
+        {
+           
+            NmrBookCount.Text = " ";
+            TxtPriceOrder.Text = " ";
+            CmbCostumerOrder.Text = string.Empty;            
+            CmbBookOrder.Text = string.Empty;
+            DateReturnDay.Value = DateTime.Now;
+            LblCostumer.ForeColor = SystemColors.ControlText;
+            LblBookOrder.ForeColor = SystemColors.ControlText;
+            LblBookCount.ForeColor = SystemColors.ControlText;
+            LblDateTimeOrder.ForeColor = SystemColors.ControlText;
+
+
+        }
+
+
+        private void CalcMoneyCountAllBook()
+        {
+
+            TxtPriceOrder.Text = (_selectedbook.Price * Convert.ToDecimal(NmrBookCount.Value)).ToString();
+
+        }
+
+        
+
+        private void NmrBookCount_ValueChanged(object sender, EventArgs e)
+        {
+            CalcMoneyCountAllBook();
+            CalcMoneyFalseReturnDay();
+        }
+
+
+
+
+        private void CalcMoneyFalseReturnDay()
+        {
+
+            if (DateReturnDay.Value <= DateTime.Now.AddDays(7))
+            {
+                TxtPriceOrder.Text = (_selectedbook.Price * NmrBookCount.Value).ToString();
+            }
+            if (DateReturnDay.Value > DateTime.Now.AddDays(7) && DateReturnDay.Value <= DateTime.Now.AddDays(14))
+            {
+                TxtPriceOrder.Text = (_selectedbook.Price * 2 * NmrBookCount.Value).ToString();
+            }
+            if (DateReturnDay.Value > DateTime.Now.AddDays(14) && DateReturnDay.Value <= DateTime.Now.AddDays(21))
+            {
+                TxtPriceOrder.Text = (_selectedbook.Price * 3 * NmrBookCount.Value).ToString();
+            }
+            if (DateReturnDay.Value > DateTime.Now.AddDays(21) && DateReturnDay.Value <= DateTime.Now.AddMonths(1))
+            {
+                TxtPriceOrder.Text = (_selectedbook.Price * 4 * NmrBookCount.Value).ToString();
+            }
+            if (DateReturnDay.Value > DateTime.Now.AddMonths(1) && DateReturnDay.Value <= DateTime.Now.AddMonths(3))
+            {
+                TxtPriceOrder.Text = (_selectedbook.Price * 5 * NmrBookCount.Value).ToString();
+            }
+            if (DateReturnDay.Value > DateTime.Now.AddMonths(3) && DateReturnDay.Value <= DateTime.Now.AddMonths(4))
+            {
+                TxtPriceOrder.Text = (_selectedbook.Price * 6 * NmrBookCount.Value).ToString();
+            }
+            if (DateReturnDay.Value > DateTime.Now.AddMonths(4) && DateReturnDay.Value <= DateTime.Now.AddMonths(5))
+            {
+                TxtPriceOrder.Text = (_selectedbook.Price * 7 * NmrBookCount.Value).ToString();
+            }
+            if (DateReturnDay.Value > DateTime.Now.AddMonths(5) && DateReturnDay.Value <= DateTime.Now.AddMonths(6))
+            {
+                TxtPriceOrder.Text = (_selectedbook.Price * 8 * NmrBookCount.Value).ToString();
+            }
+            if (DateReturnDay.Value > DateTime.Now.AddMonths(6) && DateReturnDay.Value <= DateTime.Now.AddMonths(7))
+            {
+                TxtPriceOrder.Text = (_selectedbook.Price * 10 * NmrBookCount.Value).ToString();
+            }
+
+        }
+
+
+       
+
+        private void DateReturnDay_ValueChanged(object sender, EventArgs e)
+        {
+            CalcMoneyFalseReturnDay();
+        }
+
+        private void BtnRemoveList_Click(object sender, EventArgs e)
+        {
+            //if (DgvBookDashboard.SelectedRows.Count > 0)
+            //{
+            //    DgvBookDashboard.Rows.RemoveAt(DgvBookDashboard.SelectedRows[0].Index);
+
+            //    LblPriceAllbooks.Text = (Convert.ToDecimal(LblPriceAllbooks.Text) - this._removedmoney).ToString();
+            //}
+
+            //BtnRemoveList.Visible = false;
+        }
+
+        private void BtnAddNewOrder_Click(object sender, EventArgs e)
+        {
+            if (!ValidateBookCountOnStock())
+            {
+
+                return;
+            }
+            
+            var money = Convert.ToDecimal(TxtPriceOrder.Text);
+
+            DgvBookDashboard.Rows.Add(_selectedbook.Id, _selectedbook.Name, NmrBookCount.Value, DateReturnDay.Value, money);
+
+            _selectedbook.Count -= Convert.ToInt32(NmrBookCount.Value);
+
+            CmbCostumerOrder.Enabled = false;
+            CmbBookOrder.Text = string.Empty;
+            NmrBookCount.Value = 0;
+            TxtPriceOrder.Text = " ";
+            BtnRemoveList.Visible = false;
+
+            _totalmoney += money;
+
+            LblPriceAllbooks.Text = _totalmoney.ToString();
+
+            BtnPnlResetForm();
+
+        }
+
+
+        private bool ValidateBookCountOnStock()
+        {
+
+            if (NmrBookCount.Value > _selectedbook.Count)
+            {
+                LblBookCount.ForeColor = Color.Red;
+                MessageBox.Show("Kitab Sayı Qeyd Olunandan Azdır.", "Diqqət!");
+                return false;
+            }
+
+            return true;
+        }
+
         
 
 
 
+        private bool Validation()
+        {
+            if (string.IsNullOrEmpty(CmbCostumerOrder.Text))
+            {
+                LblCostumer.ForeColor = Color.Red;
+                LblBookOrder.ForeColor = SystemColors.ControlText;
+                LblBookCount.ForeColor = SystemColors.ControlText;
+                LblDateTimeOrder.ForeColor = SystemColors.ControlText;
 
+                return false;
+            }
 
+            if (string.IsNullOrEmpty(CmbBookOrder.Text))
+            {
+                LblCostumer.ForeColor = Color.Red;
+                LblBookOrder.ForeColor = SystemColors.ControlText;
+                LblBookCount.ForeColor = SystemColors.ControlText;
+                LblDateTimeOrder.ForeColor = SystemColors.ControlText;
 
+                return false;
+            }
 
+            if (DateReturnDay.Value < DateTime.Now)
+            {
+                LblCostumer.ForeColor = Color.Red;
+                LblBookOrder.ForeColor = SystemColors.ControlText;
+                LblBookCount.ForeColor = SystemColors.ControlText;
+                LblDateTimeOrder.ForeColor = SystemColors.ControlText;
 
+                MessageBox.Show("Qaytarma Vaxtını Keçmişə Qeyd Etmək Mümkün Deyil", "Diqqət!");
 
+                return false;
+            }
+
+            if (NmrBookCount.Value == 0)
+            {
+                LblCostumer.ForeColor = Color.Red;
+                LblBookOrder.ForeColor = SystemColors.ControlText;
+                LblBookCount.ForeColor = SystemColors.ControlText;
+                LblDateTimeOrder.ForeColor = SystemColors.ControlText;
+
+                return false;
+            }
+
+            if (DateReturnDay.Value == DateTime.Now)
+            {
+                LblCostumer.ForeColor = Color.Red;
+                LblBookOrder.ForeColor = SystemColors.ControlText;
+                LblBookCount.ForeColor = SystemColors.ControlText;
+                LblDateTimeOrder.ForeColor = SystemColors.ControlText;
+
+                return false;
+
+            }
+
+            
+            return true;
+        }
+
+        private void CmbCostumerOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            CmbBookOrder.Enabled = true;
+        }
+
+        private void BtnCreateOrder_MouseEnter(object sender, EventArgs e)
+        {
+            BtnCreateOrder.BackColor = Color.RoyalBlue;
+        }
+
+        private void BtnCreateOrder_MouseLeave(object sender, EventArgs e)
+        {
+            BtnCreateOrder.BackColor = Color.CornflowerBlue;
+        }
+
+        private void BtnReturnBook_MouseEnter(object sender, EventArgs e)
+        {
+            BtnReturnBook.BackColor = Color.RoyalBlue;
+        }
+
+        private void BtnReturnBook_MouseLeave(object sender, EventArgs e)
+        {
+            BtnReturnBook.BackColor = Color.CornflowerBlue;
+        }
+
+        private void BtnTrackingAllOrders_MouseEnter(object sender, EventArgs e)
+        {
+            BtnTrackingAllOrders.BackColor = Color.RoyalBlue;
+        }
+
+        private void BtnTrackingAllOrders_MouseLeave(object sender, EventArgs e)
+        {
+            BtnTrackingAllOrders.BackColor = Color.CornflowerBlue;
+        }
+
+        private void BtnBooksAbout_MouseEnter(object sender, EventArgs e)
+        {
+            BtnBooksAbout.BackColor = Color.RoyalBlue;
+        }
+
+        private void BtnBooksAbout_MouseLeave(object sender, EventArgs e)
+        {
+            BtnBooksAbout.BackColor = Color.CornflowerBlue;
+        }
+
+        private void BtnCostumersAbout_MouseEnter(object sender, EventArgs e)
+        {
+            BtnCostumersAbout.BackColor = Color.RoyalBlue;
+        }
+
+        private void BtnCostumersAbout_MouseLeave(object sender, EventArgs e)
+        {
+            BtnCostumersAbout.BackColor = Color.CornflowerBlue;
+        }
+
+        private void BtnAccount_MouseEnter(object sender, EventArgs e)
+        {
+            BtnAccount.BackColor = Color.RoyalBlue;
+        }
+
+        private void BtnAccount_MouseLeave(object sender, EventArgs e)
+        {
+            BtnAccount.BackColor = Color.CornflowerBlue;
+        }
+
+        private void BtnUsersAbout_MouseEnter(object sender, EventArgs e)
+        {
+            BtnUsersAbout.BackColor = Color.RoyalBlue;
+        }
+
+        private void BtnUsersAbout_MouseLeave(object sender, EventArgs e)
+        {
+            BtnUsersAbout.BackColor = Color.CornflowerBlue;
+        }
     }
+    
 }

@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtLogin = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtPassWord = new System.Windows.Forms.TextBox();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -52,17 +52,17 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // TxtLogin
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Arial", 9F);
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(100, 169);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(153, 14);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "İstifadəçi";
+            this.TxtLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.TxtLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtLogin.Font = new System.Drawing.Font("Arial", 9F);
+            this.TxtLogin.ForeColor = System.Drawing.Color.White;
+            this.TxtLogin.Location = new System.Drawing.Point(100, 169);
+            this.TxtLogin.Name = "TxtLogin";
+            this.TxtLogin.Size = new System.Drawing.Size(153, 14);
+            this.TxtLogin.TabIndex = 2;
+            this.TxtLogin.Text = "Admin";
             // 
             // panel1
             // 
@@ -100,17 +100,17 @@
             this.panel2.Size = new System.Drawing.Size(221, 1);
             this.panel2.TabIndex = 6;
             // 
-            // textBox2
+            // TxtPassWord
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Arial", 9F);
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(99, 246);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(153, 14);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "Şifrə";
+            this.TxtPassWord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(36)))), ((int)(((byte)(49)))));
+            this.TxtPassWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtPassWord.Font = new System.Drawing.Font("Arial", 9F);
+            this.TxtPassWord.ForeColor = System.Drawing.Color.White;
+            this.TxtPassWord.Location = new System.Drawing.Point(99, 246);
+            this.TxtPassWord.Name = "TxtPassWord";
+            this.TxtPassWord.Size = new System.Drawing.Size(153, 14);
+            this.TxtPassWord.TabIndex = 5;
+            this.TxtPassWord.Text = "admin";
             // 
             // BtnLogin
             // 
@@ -154,10 +154,10 @@
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TxtPassWord);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtLogin);
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -178,12 +178,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtLogin;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtPassWord;
         private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.Button BtnExit;
     }
