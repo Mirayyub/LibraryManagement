@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnBooksAbout = new System.Windows.Forms.Button();
             this.BtnCostumersAbout = new System.Windows.Forms.Button();
@@ -35,9 +36,11 @@
             this.BtnCreateOrder = new System.Windows.Forms.Button();
             this.BtnReturnBook = new System.Windows.Forms.Button();
             this.BtnTrackingAllOrders = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnAccount = new System.Windows.Forms.Button();
             this.PnlNewOrders = new System.Windows.Forms.Panel();
+            this.PctEmptyBasket = new System.Windows.Forms.PictureBox();
+            this.PctFullBasket = new System.Windows.Forms.PictureBox();
+            this.LblManat = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LblPriceOrderLbl = new System.Windows.Forms.Label();
             this.DgvBookDashboard = new System.Windows.Forms.DataGridView();
@@ -47,16 +50,6 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LblPriceAllbooks = new System.Windows.Forms.Label();
-            this.DgvOrderItems = new System.Windows.Forms.DataGridView();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnSubmitOrders = new System.Windows.Forms.Button();
             this.BtnRemoveList = new System.Windows.Forms.Button();
             this.LblPriceOrder = new System.Windows.Forms.Label();
@@ -69,12 +62,32 @@
             this.CmbBookOrder = new System.Windows.Forms.ComboBox();
             this.LblCostumer = new System.Windows.Forms.Label();
             this.CmbCostumerOrder = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.DgvOrderReturn = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.PctExit = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LblRCostumerName = new System.Windows.Forms.Label();
+            this.LblRCostumerPhone = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.BtnRSearch = new System.Windows.Forms.Button();
             this.PnlNewOrders.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PctEmptyBasket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctFullBasket)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvBookDashboard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvOrderItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmrBookCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvOrderReturn)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PctExit)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnBooksAbout
@@ -89,8 +102,6 @@
             this.BtnBooksAbout.Text = "Kitablar";
             this.BtnBooksAbout.UseVisualStyleBackColor = false;
             this.BtnBooksAbout.Click += new System.EventHandler(this.BtnBooksAbout_Click);
-            this.BtnBooksAbout.MouseEnter += new System.EventHandler(this.BtnBooksAbout_MouseEnter);
-            this.BtnBooksAbout.MouseLeave += new System.EventHandler(this.BtnBooksAbout_MouseLeave);
             // 
             // BtnCostumersAbout
             // 
@@ -104,8 +115,6 @@
             this.BtnCostumersAbout.Text = "Müştərilər";
             this.BtnCostumersAbout.UseVisualStyleBackColor = false;
             this.BtnCostumersAbout.Click += new System.EventHandler(this.BtnCostumersAbout_Click);
-            this.BtnCostumersAbout.MouseEnter += new System.EventHandler(this.BtnCostumersAbout_MouseEnter);
-            this.BtnCostumersAbout.MouseLeave += new System.EventHandler(this.BtnCostumersAbout_MouseLeave);
             // 
             // BtnUsersAbout
             // 
@@ -119,8 +128,6 @@
             this.BtnUsersAbout.Text = "İstifadəçilər";
             this.BtnUsersAbout.UseVisualStyleBackColor = false;
             this.BtnUsersAbout.Click += new System.EventHandler(this.BtnUsersAbout_Click);
-            this.BtnUsersAbout.MouseEnter += new System.EventHandler(this.BtnUsersAbout_MouseEnter);
-            this.BtnUsersAbout.MouseLeave += new System.EventHandler(this.BtnUsersAbout_MouseLeave);
             // 
             // BtnCreateOrder
             // 
@@ -134,8 +141,6 @@
             this.BtnCreateOrder.Text = "Sifariş Yarat";
             this.BtnCreateOrder.UseVisualStyleBackColor = false;
             this.BtnCreateOrder.Click += new System.EventHandler(this.BtnCreateOrder_Click);
-            this.BtnCreateOrder.MouseEnter += new System.EventHandler(this.BtnCreateOrder_MouseEnter);
-            this.BtnCreateOrder.MouseLeave += new System.EventHandler(this.BtnCreateOrder_MouseLeave);
             // 
             // BtnReturnBook
             // 
@@ -149,8 +154,6 @@
             this.BtnReturnBook.Text = "Kitab Qaytar";
             this.BtnReturnBook.UseVisualStyleBackColor = false;
             this.BtnReturnBook.Click += new System.EventHandler(this.BtnReturnBook_Click);
-            this.BtnReturnBook.MouseEnter += new System.EventHandler(this.BtnReturnBook_MouseEnter);
-            this.BtnReturnBook.MouseLeave += new System.EventHandler(this.BtnReturnBook_MouseLeave);
             // 
             // BtnTrackingAllOrders
             // 
@@ -164,16 +167,6 @@
             this.BtnTrackingAllOrders.Text = "Izleme";
             this.BtnTrackingAllOrders.UseVisualStyleBackColor = false;
             this.BtnTrackingAllOrders.Click += new System.EventHandler(this.BtnTrackingAllOrders_Click);
-            this.BtnTrackingAllOrders.MouseEnter += new System.EventHandler(this.BtnTrackingAllOrders_MouseEnter);
-            this.BtnTrackingAllOrders.MouseLeave += new System.EventHandler(this.BtnTrackingAllOrders_MouseLeave);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(777, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 50);
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
             // 
             // BtnAccount
             // 
@@ -186,11 +179,12 @@
             this.BtnAccount.TabIndex = 22;
             this.BtnAccount.Text = "Account";
             this.BtnAccount.UseVisualStyleBackColor = false;
-            this.BtnAccount.MouseEnter += new System.EventHandler(this.BtnAccount_MouseEnter);
-            this.BtnAccount.MouseLeave += new System.EventHandler(this.BtnAccount_MouseLeave);
             // 
             // PnlNewOrders
             // 
+            this.PnlNewOrders.Controls.Add(this.PctEmptyBasket);
+            this.PnlNewOrders.Controls.Add(this.PctFullBasket);
+            this.PnlNewOrders.Controls.Add(this.LblManat);
             this.PnlNewOrders.Controls.Add(this.panel1);
             this.PnlNewOrders.Controls.Add(this.DgvBookDashboard);
             this.PnlNewOrders.Controls.Add(this.LblPriceAllbooks);
@@ -208,9 +202,39 @@
             this.PnlNewOrders.Controls.Add(this.CmbCostumerOrder);
             this.PnlNewOrders.Location = new System.Drawing.Point(172, 95);
             this.PnlNewOrders.Name = "PnlNewOrders";
-            this.PnlNewOrders.Size = new System.Drawing.Size(626, 252);
+            this.PnlNewOrders.Size = new System.Drawing.Size(734, 252);
             this.PnlNewOrders.TabIndex = 23;
             this.PnlNewOrders.Visible = false;
+            // 
+            // PctEmptyBasket
+            // 
+            this.PctEmptyBasket.Image = ((System.Drawing.Image)(resources.GetObject("PctEmptyBasket.Image")));
+            this.PctEmptyBasket.Location = new System.Drawing.Point(495, 9);
+            this.PctEmptyBasket.Name = "PctEmptyBasket";
+            this.PctEmptyBasket.Size = new System.Drawing.Size(105, 97);
+            this.PctEmptyBasket.TabIndex = 42;
+            this.PctEmptyBasket.TabStop = false;
+            // 
+            // PctFullBasket
+            // 
+            this.PctFullBasket.Image = ((System.Drawing.Image)(resources.GetObject("PctFullBasket.Image")));
+            this.PctFullBasket.Location = new System.Drawing.Point(495, 9);
+            this.PctFullBasket.Name = "PctFullBasket";
+            this.PctFullBasket.Size = new System.Drawing.Size(105, 97);
+            this.PctFullBasket.TabIndex = 41;
+            this.PctFullBasket.TabStop = false;
+            this.PctFullBasket.Visible = false;
+            // 
+            // LblManat
+            // 
+            this.LblManat.AutoSize = true;
+            this.LblManat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LblManat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LblManat.Location = new System.Drawing.Point(702, 47);
+            this.LblManat.Name = "LblManat";
+            this.LblManat.Size = new System.Drawing.Size(29, 25);
+            this.LblManat.TabIndex = 40;
+            this.LblManat.Text = "₼";
             // 
             // panel1
             // 
@@ -250,7 +274,7 @@
             this.DgvBookDashboard.ReadOnly = true;
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.DgvBookDashboard.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.DgvBookDashboard.Size = new System.Drawing.Size(620, 139);
+            this.DgvBookDashboard.Size = new System.Drawing.Size(728, 139);
             this.DgvBookDashboard.TabIndex = 37;
             // 
             // Column1
@@ -289,91 +313,22 @@
             this.LblPriceAllbooks.AutoSize = true;
             this.LblPriceAllbooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LblPriceAllbooks.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LblPriceAllbooks.Location = new System.Drawing.Point(568, 56);
+            this.LblPriceAllbooks.Location = new System.Drawing.Point(627, 47);
             this.LblPriceAllbooks.Name = "LblPriceAllbooks";
             this.LblPriceAllbooks.Size = new System.Drawing.Size(25, 25);
             this.LblPriceAllbooks.TabIndex = 36;
             this.LblPriceAllbooks.Text = "0";
-            // 
-            // DgvOrderItems
-            // 
-            this.DgvOrderItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DgvOrderItems.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.DgvOrderItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvOrderItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column6,
-            this.Column13,
-            this.Column7,
-            this.Column14,
-            this.Column8,
-            this.Column9,
-            this.Column10,
-            this.Column11,
-            this.Column12});
-            this.DgvOrderItems.Location = new System.Drawing.Point(172, 352);
-            this.DgvOrderItems.Name = "DgvOrderItems";
-            this.DgvOrderItems.Size = new System.Drawing.Size(626, 164);
-            this.DgvOrderItems.TabIndex = 33;
-            this.DgvOrderItems.Visible = false;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Id";
-            this.Column6.Name = "Column6";
-            this.Column6.Visible = false;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "CostumerId";
-            this.Column13.Name = "Column13";
-            this.Column13.Visible = false;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Müştəri";
-            this.Column7.Name = "Column7";
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "BookId";
-            this.Column14.Name = "Column14";
-            this.Column14.Visible = false;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Kitab";
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Say";
-            this.Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Sifariş Vaxtı";
-            this.Column10.Name = "Column10";
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Qaytarma Vaxtı";
-            this.Column11.Name = "Column11";
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Qiymət";
-            this.Column12.Name = "Column12";
             // 
             // BtnSubmitOrders
             // 
             this.BtnSubmitOrders.BackColor = System.Drawing.Color.ForestGreen;
             this.BtnSubmitOrders.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSubmitOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.BtnSubmitOrders.Location = new System.Drawing.Point(548, 3);
+            this.BtnSubmitOrders.Location = new System.Drawing.Point(642, 11);
             this.BtnSubmitOrders.Name = "BtnSubmitOrders";
             this.BtnSubmitOrders.Size = new System.Drawing.Size(75, 31);
             this.BtnSubmitOrders.TabIndex = 35;
-            this.BtnSubmitOrders.Text = "Qəbul et";
+            this.BtnSubmitOrders.Text = "Təsdiqlə";
             this.BtnSubmitOrders.UseVisualStyleBackColor = false;
             this.BtnSubmitOrders.Visible = false;
             this.BtnSubmitOrders.Click += new System.EventHandler(this.BtnSubmitOrders_Click);
@@ -390,7 +345,6 @@
             this.BtnRemoveList.Text = "Sil";
             this.BtnRemoveList.UseVisualStyleBackColor = false;
             this.BtnRemoveList.Visible = false;
-            this.BtnRemoveList.Click += new System.EventHandler(this.BtnRemoveList_Click);
             // 
             // LblPriceOrder
             // 
@@ -497,16 +451,155 @@
             this.CmbCostumerOrder.TabIndex = 22;
             this.CmbCostumerOrder.SelectedIndexChanged += new System.EventHandler(this.CmbCostumerOrder_SelectedIndexChanged);
             // 
+            // DgvOrderReturn
+            // 
+            this.DgvOrderReturn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvOrderReturn.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.DgvOrderReturn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvOrderReturn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column6,
+            this.Column13,
+            this.Column7,
+            this.Column14,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12});
+            this.DgvOrderReturn.Location = new System.Drawing.Point(0, 172);
+            this.DgvOrderReturn.Name = "DgvOrderReturn";
+            this.DgvOrderReturn.Size = new System.Drawing.Size(597, 176);
+            this.DgvOrderReturn.TabIndex = 33;
+            this.DgvOrderReturn.Visible = false;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Id";
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "CostumerId";
+            this.Column13.Name = "Column13";
+            this.Column13.Visible = false;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Müştəri";
+            this.Column7.Name = "Column7";
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "BookId";
+            this.Column14.Name = "Column14";
+            this.Column14.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Kitab";
+            this.Column8.Name = "Column8";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Say";
+            this.Column9.Name = "Column9";
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Sifariş Vaxtı";
+            this.Column10.Name = "Column10";
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Qaytarma Vaxtı";
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Qiymət";
+            this.Column12.Name = "Column12";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.BtnRSearch);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.LblRCostumerPhone);
+            this.panel2.Controls.Add(this.LblRCostumerName);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.DgvOrderReturn);
+            this.panel2.Location = new System.Drawing.Point(172, 95);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(743, 348);
+            this.panel2.TabIndex = 43;
+            // 
+            // PctExit
+            // 
+            this.PctExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PctExit.Image = ((System.Drawing.Image)(resources.GetObject("PctExit.Image")));
+            this.PctExit.Location = new System.Drawing.Point(903, 12);
+            this.PctExit.Name = "PctExit";
+            this.PctExit.Size = new System.Drawing.Size(55, 54);
+            this.PctExit.TabIndex = 44;
+            this.PctExit.TabStop = false;
+            this.PctExit.Click += new System.EventHandler(this.PctExit_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(22, 36);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 34;
+            // 
+            // LblRCostumerName
+            // 
+            this.LblRCostumerName.AutoSize = true;
+            this.LblRCostumerName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LblRCostumerName.Location = new System.Drawing.Point(22, 20);
+            this.LblRCostumerName.Name = "LblRCostumerName";
+            this.LblRCostumerName.Size = new System.Drawing.Size(41, 13);
+            this.LblRCostumerName.TabIndex = 35;
+            this.LblRCostumerName.Text = "Müştəri";
+            // 
+            // LblRCostumerPhone
+            // 
+            this.LblRCostumerPhone.AutoSize = true;
+            this.LblRCostumerPhone.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LblRCostumerPhone.Location = new System.Drawing.Point(19, 73);
+            this.LblRCostumerPhone.Name = "LblRCostumerPhone";
+            this.LblRCostumerPhone.Size = new System.Drawing.Size(84, 13);
+            this.LblRCostumerPhone.TabIndex = 36;
+            this.LblRCostumerPhone.Text = "Telefon Nömrəsi";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(22, 89);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 38;
+            // 
+            // BtnRSearch
+            // 
+            this.BtnRSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(155)))), ((int)(((byte)(255)))));
+            this.BtnRSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.BtnRSearch.Location = new System.Drawing.Point(22, 124);
+            this.BtnRSearch.Name = "BtnRSearch";
+            this.BtnRSearch.Size = new System.Drawing.Size(110, 42);
+            this.BtnRSearch.TabIndex = 45;
+            this.BtnRSearch.Text = "Axtar";
+            this.BtnRSearch.UseVisualStyleBackColor = false;
+            // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(970, 542);
+            this.Controls.Add(this.PctExit);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.PnlNewOrders);
             this.Controls.Add(this.BtnAccount);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.DgvOrderItems);
             this.Controls.Add(this.BtnTrackingAllOrders);
             this.Controls.Add(this.BtnReturnBook);
             this.Controls.Add(this.BtnCreateOrder);
@@ -518,14 +611,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DashBoard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DashBoard_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PnlNewOrders.ResumeLayout(false);
             this.PnlNewOrders.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PctEmptyBasket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctFullBasket)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvBookDashboard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvOrderItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmrBookCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvOrderReturn)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PctExit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -538,7 +635,6 @@
         private System.Windows.Forms.Button BtnCreateOrder;
         private System.Windows.Forms.Button BtnReturnBook;
         private System.Windows.Forms.Button BtnTrackingAllOrders;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BtnAccount;
         private System.Windows.Forms.Panel PnlNewOrders;
         private System.Windows.Forms.Label LblPriceOrder;
@@ -552,7 +648,7 @@
         private System.Windows.Forms.Label LblCostumer;
         private System.Windows.Forms.ComboBox CmbCostumerOrder;
         private System.Windows.Forms.Button BtnRemoveList;
-        private System.Windows.Forms.DataGridView DgvOrderItems;
+        private System.Windows.Forms.DataGridView DgvOrderReturn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
@@ -572,5 +668,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Label LblPriceOrderLbl;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label LblManat;
+        private System.Windows.Forms.PictureBox PctEmptyBasket;
+        private System.Windows.Forms.PictureBox PctFullBasket;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox PctExit;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label LblRCostumerPhone;
+        private System.Windows.Forms.Label LblRCostumerName;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button BtnRSearch;
     }
 }

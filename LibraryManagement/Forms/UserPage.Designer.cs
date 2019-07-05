@@ -247,6 +247,7 @@
             this.TxtLastName.Name = "TxtLastName";
             this.TxtLastName.Size = new System.Drawing.Size(100, 20);
             this.TxtLastName.TabIndex = 12;
+            this.TxtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtLastName_KeyPress);
             // 
             // LblLastName
             // 
@@ -263,6 +264,7 @@
             this.TxtFirstName.Name = "TxtFirstName";
             this.TxtFirstName.Size = new System.Drawing.Size(100, 20);
             this.TxtFirstName.TabIndex = 10;
+            this.TxtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtFirstName_KeyPress);
             // 
             // LblFirstName
             // 

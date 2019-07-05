@@ -78,7 +78,7 @@
             this.BtnCostumerDelete.BackColor = System.Drawing.Color.Firebrick;
             this.BtnCostumerDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCostumerDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnCostumerDelete.Location = new System.Drawing.Point(139, 91);
+            this.BtnCostumerDelete.Location = new System.Drawing.Point(139, 97);
             this.BtnCostumerDelete.Name = "BtnCostumerDelete";
             this.BtnCostumerDelete.Size = new System.Drawing.Size(100, 43);
             this.BtnCostumerDelete.TabIndex = 29;
@@ -136,6 +136,7 @@
             this.TxtPhoneNumber.Name = "TxtPhoneNumber";
             this.TxtPhoneNumber.Size = new System.Drawing.Size(100, 20);
             this.TxtPhoneNumber.TabIndex = 22;
+            this.TxtPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPhoneNumber_KeyPress);
             // 
             // LblPhoneNumber
             // 
@@ -148,15 +149,16 @@
             // 
             // TxtLastName
             // 
-            this.TxtLastName.Location = new System.Drawing.Point(6, 107);
+            this.TxtLastName.Location = new System.Drawing.Point(6, 103);
             this.TxtLastName.Name = "TxtLastName";
             this.TxtLastName.Size = new System.Drawing.Size(100, 20);
             this.TxtLastName.TabIndex = 20;
+            this.TxtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtLastName_KeyPress);
             // 
             // LblLastName
             // 
             this.LblLastName.AutoSize = true;
-            this.LblLastName.Location = new System.Drawing.Point(3, 91);
+            this.LblLastName.Location = new System.Drawing.Point(3, 87);
             this.LblLastName.Name = "LblLastName";
             this.LblLastName.Size = new System.Drawing.Size(41, 13);
             this.LblLastName.TabIndex = 19;
@@ -168,6 +170,7 @@
             this.TxtFirstName.Name = "TxtFirstName";
             this.TxtFirstName.Size = new System.Drawing.Size(100, 20);
             this.TxtFirstName.TabIndex = 18;
+            this.TxtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtFirstName_KeyPress);
             // 
             // LblFirstName
             // 

@@ -120,6 +120,7 @@
             this.TxtBookPrice.Name = "TxtBookPrice";
             this.TxtBookPrice.Size = new System.Drawing.Size(100, 20);
             this.TxtBookPrice.TabIndex = 4;
+            this.TxtBookPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBookPrice_KeyPress);
             // 
             // LblBookPrice
             // 

@@ -71,7 +71,7 @@ namespace LibraryManagement.Forms
             BtnCreateOrder.BackColor = Color.RoyalBlue;
             BtnTrackingAllOrders.BackColor = Color.CornflowerBlue;            
             BtnReturnBook.BackColor = Color.CornflowerBlue;
-
+            BtnCreateOrder.BackColor = Color.RoyalBlue;
 
         }
 
@@ -99,6 +99,10 @@ namespace LibraryManagement.Forms
             BtnTrackingAllOrders.BackColor = Color.CornflowerBlue;
             BtnCreateOrder.BackColor = Color.CornflowerBlue;
             BtnReturnBook.BackColor = Color.RoyalBlue;
+
+
+
+
             
         }
 
@@ -123,6 +127,7 @@ namespace LibraryManagement.Forms
             DateReturnDay.Value = DateTime.Now;
             NmrBookCount.Text = "1";
             LblPriceOrderLbl.Text = " ";
+            
 
         }
 
@@ -154,6 +159,8 @@ namespace LibraryManagement.Forms
             CmbCostumerOrder.Enabled = true;
             BtnSubmitOrders.Visible = false;
             BtnAddNewOrder.Enabled = false;
+            PctEmptyBasket.Visible = true;
+            PctFullBasket.Visible = false;
             DgvBookDashboard.Rows.Clear();
             LblPriceAllbooks.Text = "0";
             NmrBookCount.Text = "0";
@@ -165,7 +172,7 @@ namespace LibraryManagement.Forms
             LblBookOrder.ForeColor = SystemColors.ControlText;
             LblBookCount.ForeColor = SystemColors.ControlText;
             LblDateTimeOrder.ForeColor = SystemColors.ControlText;
-
+            
 
         }
 
@@ -239,17 +246,7 @@ namespace LibraryManagement.Forms
             CalcMoneyFalseReturnDay();
         }
 
-        private void BtnRemoveList_Click(object sender, EventArgs e)
-        {
-            //if (DgvBookDashboard.SelectedRows.Count > 0)
-            //{
-            //    DgvBookDashboard.Rows.RemoveAt(DgvBookDashboard.SelectedRows[0].Index);
-
-            //    LblPriceAllbooks.Text = (Convert.ToDecimal(LblPriceAllbooks.Text) - this._removedmoney).ToString();
-            //}
-
-            //BtnRemoveList.Visible = false;
-        }
+        
 
         private void BtnAddNewOrder_Click(object sender, EventArgs e)
         {
@@ -272,7 +269,7 @@ namespace LibraryManagement.Forms
             LblPriceOrderLbl.Text = " ";
             BtnRemoveList.Visible = false;
             BtnSubmitOrders.Visible = true;
-
+            BtnAddNewOrder.Enabled = false;
             _totalmoney += money;
 
             LblPriceAllbooks.Text = _totalmoney.ToString();
@@ -281,7 +278,8 @@ namespace LibraryManagement.Forms
             DateReturnDay.Enabled = false;
             NmrBookCount.Enabled = false;
             LblPriceOrderLbl.Enabled = false;
-            
+            PctEmptyBasket.Visible = false;
+            PctFullBasket.Visible = true;
 
 
         }
@@ -369,75 +367,75 @@ namespace LibraryManagement.Forms
             CmbBookOrder.Enabled = true;
         }
 
-        private void BtnCreateOrder_MouseEnter(object sender, EventArgs e)
-        {
-            BtnCreateOrder.BackColor = Color.RoyalBlue;
-        }
+        //private void BtnCreateOrder_MouseEnter(object sender, EventArgs e)
+        //{
+        //    BtnCreateOrder.BackColor = Color.RoyalBlue;
+        //}
 
-        private void BtnCreateOrder_MouseLeave(object sender, EventArgs e)
-        {
-            BtnCreateOrder.BackColor = Color.CornflowerBlue;
-        }
+        //private void BtnCreateOrder_MouseLeave(object sender, EventArgs e)
+        //{
+        //    BtnCreateOrder.BackColor = Color.CornflowerBlue;
+        //}
 
-        private void BtnReturnBook_MouseEnter(object sender, EventArgs e)
-        {
-            BtnReturnBook.BackColor = Color.RoyalBlue;
-        }
+        //private void BtnReturnBook_MouseEnter(object sender, EventArgs e)
+        //{
+        //    BtnReturnBook.BackColor = Color.RoyalBlue;
+        //}
 
-        private void BtnReturnBook_MouseLeave(object sender, EventArgs e)
-        {
-            BtnReturnBook.BackColor = Color.CornflowerBlue;
-        }
+        //private void BtnReturnBook_MouseLeave(object sender, EventArgs e)
+        //{
+        //    BtnReturnBook.BackColor = Color.CornflowerBlue;
+        //}
 
-        private void BtnTrackingAllOrders_MouseEnter(object sender, EventArgs e)
-        {
-            BtnTrackingAllOrders.BackColor = Color.RoyalBlue;
-        }
+        //private void BtnTrackingAllOrders_MouseEnter(object sender, EventArgs e)
+        //{
+        //    BtnTrackingAllOrders.BackColor = Color.RoyalBlue;
+        //}
 
-        private void BtnTrackingAllOrders_MouseLeave(object sender, EventArgs e)
-        {
-            BtnTrackingAllOrders.BackColor = Color.CornflowerBlue;
-        }
+        //private void BtnTrackingAllOrders_MouseLeave(object sender, EventArgs e)
+        //{
+        //    BtnTrackingAllOrders.BackColor = Color.CornflowerBlue;
+        //}
 
-        private void BtnBooksAbout_MouseEnter(object sender, EventArgs e)
-        {
-            BtnBooksAbout.BackColor = Color.RoyalBlue;
-        }
+        //private void BtnBooksAbout_MouseEnter(object sender, EventArgs e)
+        //{
+        //    BtnBooksAbout.BackColor = Color.RoyalBlue;
+        //}
 
-        private void BtnBooksAbout_MouseLeave(object sender, EventArgs e)
-        {
-            BtnBooksAbout.BackColor = Color.CornflowerBlue;
-        }
+        //private void BtnBooksAbout_MouseLeave(object sender, EventArgs e)
+        //{
+        //    BtnBooksAbout.BackColor = Color.CornflowerBlue;
+        //}
 
-        private void BtnCostumersAbout_MouseEnter(object sender, EventArgs e)
-        {
-            BtnCostumersAbout.BackColor = Color.RoyalBlue;
-        }
+        //private void BtnCostumersAbout_MouseEnter(object sender, EventArgs e)
+        //{
+        //    BtnCostumersAbout.BackColor = Color.RoyalBlue;
+        //}
 
-        private void BtnCostumersAbout_MouseLeave(object sender, EventArgs e)
-        {
-            BtnCostumersAbout.BackColor = Color.CornflowerBlue;
-        }
+        //private void BtnCostumersAbout_MouseLeave(object sender, EventArgs e)
+        //{
+        //    BtnCostumersAbout.BackColor = Color.CornflowerBlue;
+        //}
 
-        private void BtnAccount_MouseEnter(object sender, EventArgs e)
-        {
-            BtnAccount.BackColor = Color.RoyalBlue;
-        }
+        //private void BtnAccount_MouseEnter(object sender, EventArgs e)
+        //{
+        //    BtnAccount.BackColor = Color.RoyalBlue;
+        //}
 
-        private void BtnAccount_MouseLeave(object sender, EventArgs e)
-        {
-            BtnAccount.BackColor = Color.CornflowerBlue;
-        }
+        //private void BtnAccount_MouseLeave(object sender, EventArgs e)
+        //{
+        //    BtnAccount.BackColor = Color.CornflowerBlue;
+        //}
 
-        private void BtnUsersAbout_MouseEnter(object sender, EventArgs e)
-        {
-            BtnUsersAbout.BackColor = Color.RoyalBlue;
-        }
+        //private void BtnUsersAbout_MouseEnter(object sender, EventArgs e)
+        //{
+        //    BtnUsersAbout.BackColor = Color.RoyalBlue;
+        //}
 
-        private void BtnUsersAbout_MouseLeave(object sender, EventArgs e)
-        {
-            BtnUsersAbout.BackColor = Color.CornflowerBlue;
-        }
+        //private void BtnUsersAbout_MouseLeave(object sender, EventArgs e)
+        //{
+        //    BtnUsersAbout.BackColor = Color.CornflowerBlue;
+        //}
 
         private void BtnSubmitOrders_Click(object sender, EventArgs e)
         {
@@ -459,11 +457,20 @@ namespace LibraryManagement.Forms
 
             BtnPnlResetForm();
             ResetForm();
+            BtnAddNewOrder.Enabled = false;
             
 
-            
-            
 
+
+
+        }
+
+        private void PctExit_Click(object sender, EventArgs e)
+        {
+            Login ss = new Login();
+
+            this.Hide();
+            ss.Show();
         }
     }
     
