@@ -78,9 +78,9 @@
             this.BtnCostumerDelete.BackColor = System.Drawing.Color.Firebrick;
             this.BtnCostumerDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCostumerDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnCostumerDelete.Location = new System.Drawing.Point(139, 97);
+            this.BtnCostumerDelete.Location = new System.Drawing.Point(139, 103);
             this.BtnCostumerDelete.Name = "BtnCostumerDelete";
-            this.BtnCostumerDelete.Size = new System.Drawing.Size(100, 43);
+            this.BtnCostumerDelete.Size = new System.Drawing.Size(100, 39);
             this.BtnCostumerDelete.TabIndex = 29;
             this.BtnCostumerDelete.Text = "Sil";
             this.BtnCostumerDelete.UseVisualStyleBackColor = false;

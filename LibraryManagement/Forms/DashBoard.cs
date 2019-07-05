@@ -65,14 +65,12 @@ namespace LibraryManagement.Forms
             FillCustomerList();
             FillBookList();
             PnlNewOrders.Visible = true;
-            LblPriceAllbooks.Text = "0";
-            CmbBookOrder.DropDownHeight = CmbBookOrder.Font.Height * 5;
-            CmbCostumerOrder.DropDownHeight = CmbCostumerOrder.Font.Height * 5;
+            LblPriceAllbooks.Text = "0";            
             BtnCreateOrder.BackColor = Color.RoyalBlue;
             BtnTrackingAllOrders.BackColor = Color.CornflowerBlue;            
             BtnReturnBook.BackColor = Color.CornflowerBlue;
             BtnCreateOrder.BackColor = Color.RoyalBlue;
-
+            PnlReturnBook.Visible = false;
         }
 
 
@@ -95,7 +93,7 @@ namespace LibraryManagement.Forms
         private void BtnReturnBook_Click(object sender, EventArgs e)
         {
             PnlNewOrders.Visible = false;
-
+            PnlReturnBook.Visible = true;
             BtnTrackingAllOrders.BackColor = Color.CornflowerBlue;
             BtnCreateOrder.BackColor = Color.CornflowerBlue;
             BtnReturnBook.BackColor = Color.RoyalBlue;
@@ -471,6 +469,27 @@ namespace LibraryManagement.Forms
 
             this.Hide();
             ss.Show();
+        }
+
+        private void BtnRSearch_Click(object sender, EventArgs e)
+        {
+            
+            DgvOrderReturn.Rows.Clear();
+
+
+            List<OrderItem> order = _context.OrderItems.Where(o => o.Costumer.FirstName.Contains(TxtRBCostumerName.Text)).ToList();
+
+            foreach (var item in order)
+            {
+                DgvOrderReturn.Rows.Add(item.Id,
+                                     item.CustomerId,
+                                     item.Costumer.FirstName+ " " + item.Costumer.LastName,
+                                     item.BookId,
+                                     item.Book,
+                                     item.Book.Count
+                                     
+                                     );
+            }
         }
     }
     

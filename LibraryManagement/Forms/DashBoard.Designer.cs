@@ -72,13 +72,18 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.PctExit = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.LblRCostumerName = new System.Windows.Forms.Label();
-            this.LblRCostumerPhone = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.PnlReturnBook = new System.Windows.Forms.Panel();
             this.BtnRSearch = new System.Windows.Forms.Button();
+            this.TxtRBCostumerPhoneNo = new System.Windows.Forms.TextBox();
+            this.LblRCostumerPhone = new System.Windows.Forms.Label();
+            this.LblRCostumerName = new System.Windows.Forms.Label();
+            this.TxtRBCostumerName = new System.Windows.Forms.TextBox();
+            this.PctExit = new System.Windows.Forms.PictureBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.LblRBDay = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.LblRBCount = new System.Windows.Forms.Label();
+            this.BtnRBSubmit = new System.Windows.Forms.Button();
             this.PnlNewOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctEmptyBasket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctFullBasket)).BeginInit();
@@ -86,8 +91,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvBookDashboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmrBookCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrderReturn)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.PnlReturnBook.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnBooksAbout
@@ -202,7 +208,7 @@
             this.PnlNewOrders.Controls.Add(this.CmbCostumerOrder);
             this.PnlNewOrders.Location = new System.Drawing.Point(172, 95);
             this.PnlNewOrders.Name = "PnlNewOrders";
-            this.PnlNewOrders.Size = new System.Drawing.Size(734, 252);
+            this.PnlNewOrders.Size = new System.Drawing.Size(761, 290);
             this.PnlNewOrders.TabIndex = 23;
             this.PnlNewOrders.Visible = false;
             // 
@@ -468,9 +474,8 @@
             this.Column12});
             this.DgvOrderReturn.Location = new System.Drawing.Point(0, 172);
             this.DgvOrderReturn.Name = "DgvOrderReturn";
-            this.DgvOrderReturn.Size = new System.Drawing.Size(597, 176);
+            this.DgvOrderReturn.Size = new System.Drawing.Size(758, 176);
             this.DgvOrderReturn.TabIndex = 33;
-            this.DgvOrderReturn.Visible = false;
             // 
             // Column6
             // 
@@ -520,63 +525,24 @@
             this.Column12.HeaderText = "Qiymət";
             this.Column12.Name = "Column12";
             // 
-            // panel2
+            // PnlReturnBook
             // 
-            this.panel2.Controls.Add(this.BtnRSearch);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.LblRCostumerPhone);
-            this.panel2.Controls.Add(this.LblRCostumerName);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.DgvOrderReturn);
-            this.panel2.Location = new System.Drawing.Point(172, 95);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(743, 348);
-            this.panel2.TabIndex = 43;
-            // 
-            // PctExit
-            // 
-            this.PctExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PctExit.Image = ((System.Drawing.Image)(resources.GetObject("PctExit.Image")));
-            this.PctExit.Location = new System.Drawing.Point(903, 12);
-            this.PctExit.Name = "PctExit";
-            this.PctExit.Size = new System.Drawing.Size(55, 54);
-            this.PctExit.TabIndex = 44;
-            this.PctExit.TabStop = false;
-            this.PctExit.Click += new System.EventHandler(this.PctExit_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(22, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 34;
-            // 
-            // LblRCostumerName
-            // 
-            this.LblRCostumerName.AutoSize = true;
-            this.LblRCostumerName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LblRCostumerName.Location = new System.Drawing.Point(22, 20);
-            this.LblRCostumerName.Name = "LblRCostumerName";
-            this.LblRCostumerName.Size = new System.Drawing.Size(41, 13);
-            this.LblRCostumerName.TabIndex = 35;
-            this.LblRCostumerName.Text = "Müştəri";
-            // 
-            // LblRCostumerPhone
-            // 
-            this.LblRCostumerPhone.AutoSize = true;
-            this.LblRCostumerPhone.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LblRCostumerPhone.Location = new System.Drawing.Point(19, 73);
-            this.LblRCostumerPhone.Name = "LblRCostumerPhone";
-            this.LblRCostumerPhone.Size = new System.Drawing.Size(84, 13);
-            this.LblRCostumerPhone.TabIndex = 36;
-            this.LblRCostumerPhone.Text = "Telefon Nömrəsi";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(22, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 38;
+            this.PnlReturnBook.Controls.Add(this.BtnRBSubmit);
+            this.PnlReturnBook.Controls.Add(this.LblRBCount);
+            this.PnlReturnBook.Controls.Add(this.numericUpDown1);
+            this.PnlReturnBook.Controls.Add(this.LblRBDay);
+            this.PnlReturnBook.Controls.Add(this.dateTimePicker1);
+            this.PnlReturnBook.Controls.Add(this.BtnRSearch);
+            this.PnlReturnBook.Controls.Add(this.TxtRBCostumerPhoneNo);
+            this.PnlReturnBook.Controls.Add(this.LblRCostumerPhone);
+            this.PnlReturnBook.Controls.Add(this.LblRCostumerName);
+            this.PnlReturnBook.Controls.Add(this.TxtRBCostumerName);
+            this.PnlReturnBook.Controls.Add(this.DgvOrderReturn);
+            this.PnlReturnBook.Location = new System.Drawing.Point(172, 95);
+            this.PnlReturnBook.Name = "PnlReturnBook";
+            this.PnlReturnBook.Size = new System.Drawing.Size(761, 386);
+            this.PnlReturnBook.TabIndex = 43;
+            this.PnlReturnBook.Visible = false;
             // 
             // BtnRSearch
             // 
@@ -589,6 +555,98 @@
             this.BtnRSearch.TabIndex = 45;
             this.BtnRSearch.Text = "Axtar";
             this.BtnRSearch.UseVisualStyleBackColor = false;
+            this.BtnRSearch.Click += new System.EventHandler(this.BtnRSearch_Click);
+            // 
+            // TxtRBCostumerPhoneNo
+            // 
+            this.TxtRBCostumerPhoneNo.Location = new System.Drawing.Point(22, 89);
+            this.TxtRBCostumerPhoneNo.Name = "TxtRBCostumerPhoneNo";
+            this.TxtRBCostumerPhoneNo.Size = new System.Drawing.Size(100, 20);
+            this.TxtRBCostumerPhoneNo.TabIndex = 38;
+            // 
+            // LblRCostumerPhone
+            // 
+            this.LblRCostumerPhone.AutoSize = true;
+            this.LblRCostumerPhone.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LblRCostumerPhone.Location = new System.Drawing.Point(19, 73);
+            this.LblRCostumerPhone.Name = "LblRCostumerPhone";
+            this.LblRCostumerPhone.Size = new System.Drawing.Size(84, 13);
+            this.LblRCostumerPhone.TabIndex = 36;
+            this.LblRCostumerPhone.Text = "Telefon Nömrəsi";
+            // 
+            // LblRCostumerName
+            // 
+            this.LblRCostumerName.AutoSize = true;
+            this.LblRCostumerName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LblRCostumerName.Location = new System.Drawing.Point(22, 20);
+            this.LblRCostumerName.Name = "LblRCostumerName";
+            this.LblRCostumerName.Size = new System.Drawing.Size(41, 13);
+            this.LblRCostumerName.TabIndex = 35;
+            this.LblRCostumerName.Text = "Müştəri";
+            // 
+            // TxtRBCostumerName
+            // 
+            this.TxtRBCostumerName.Location = new System.Drawing.Point(22, 36);
+            this.TxtRBCostumerName.Name = "TxtRBCostumerName";
+            this.TxtRBCostumerName.Size = new System.Drawing.Size(100, 20);
+            this.TxtRBCostumerName.TabIndex = 34;
+            // 
+            // PctExit
+            // 
+            this.PctExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PctExit.Image = ((System.Drawing.Image)(resources.GetObject("PctExit.Image")));
+            this.PctExit.Location = new System.Drawing.Point(903, 12);
+            this.PctExit.Name = "PctExit";
+            this.PctExit.Size = new System.Drawing.Size(55, 54);
+            this.PctExit.TabIndex = 44;
+            this.PctExit.TabStop = false;
+            this.PctExit.Click += new System.EventHandler(this.PctExit_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(160, 36);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(110, 20);
+            this.dateTimePicker1.TabIndex = 46;
+            // 
+            // LblRBDay
+            // 
+            this.LblRBDay.AutoSize = true;
+            this.LblRBDay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LblRBDay.Location = new System.Drawing.Point(161, 21);
+            this.LblRBDay.Name = "LblRBDay";
+            this.LblRBDay.Size = new System.Drawing.Size(77, 13);
+            this.LblRBDay.TabIndex = 47;
+            this.LblRBDay.Text = "Qaytarılan Gün";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(160, 89);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(110, 20);
+            this.numericUpDown1.TabIndex = 48;
+            // 
+            // LblRBCount
+            // 
+            this.LblRBCount.AutoSize = true;
+            this.LblRBCount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LblRBCount.Location = new System.Drawing.Point(161, 73);
+            this.LblRBCount.Name = "LblRBCount";
+            this.LblRBCount.Size = new System.Drawing.Size(54, 13);
+            this.LblRBCount.TabIndex = 49;
+            this.LblRBCount.Text = "Kitab Sayı";
+            // 
+            // BtnRBSubmit
+            // 
+            this.BtnRBSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(155)))), ((int)(((byte)(255)))));
+            this.BtnRBSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRBSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.BtnRBSubmit.Location = new System.Drawing.Point(607, 29);
+            this.BtnRBSubmit.Name = "BtnRBSubmit";
+            this.BtnRBSubmit.Size = new System.Drawing.Size(110, 42);
+            this.BtnRBSubmit.TabIndex = 50;
+            this.BtnRBSubmit.Text = "Qaytar";
+            this.BtnRBSubmit.UseVisualStyleBackColor = false;
             // 
             // DashBoard
             // 
@@ -597,7 +655,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(970, 542);
             this.Controls.Add(this.PctExit);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.PnlReturnBook);
             this.Controls.Add(this.PnlNewOrders);
             this.Controls.Add(this.BtnAccount);
             this.Controls.Add(this.BtnTrackingAllOrders);
@@ -620,9 +678,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvBookDashboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmrBookCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrderReturn)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.PnlReturnBook.ResumeLayout(false);
+            this.PnlReturnBook.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -671,12 +730,17 @@
         private System.Windows.Forms.Label LblManat;
         private System.Windows.Forms.PictureBox PctEmptyBasket;
         private System.Windows.Forms.PictureBox PctFullBasket;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel PnlReturnBook;
         private System.Windows.Forms.PictureBox PctExit;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtRBCostumerPhoneNo;
         private System.Windows.Forms.Label LblRCostumerPhone;
         private System.Windows.Forms.Label LblRCostumerName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtRBCostumerName;
         private System.Windows.Forms.Button BtnRSearch;
+        private System.Windows.Forms.Label LblRBCount;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label LblRBDay;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button BtnRBSubmit;
     }
 }
