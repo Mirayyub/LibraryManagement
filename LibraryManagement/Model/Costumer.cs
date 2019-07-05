@@ -12,8 +12,9 @@ namespace LibraryManagement.Model
     {
         public Costumer()
         {
-            orderitems = new HashSet<OrderItem>();
+            Orders = new HashSet<Order>();
         }
+
 
         public int Id { get; set; }
 
@@ -29,9 +30,7 @@ namespace LibraryManagement.Model
         [Required]
         public string Email { get; set; }
 
-        public ICollection<OrderItem> orderitems { get; set; }
-
-        public ICollection<Order> orders { get; set; }
+        public ICollection<Order> Orders { get; set; }
 
     }
 }

@@ -22,20 +22,15 @@ namespace LibraryManagement.Model
         public int Count { get; set; }
 
         [Required]
-        public decimal Price { get; set; }
+        public decimal PayPrice { get; set; }
 
         [Required]
         public DateTime ReturnDate { get; set; }
 
-        [Required]
-        public int CustomerId { get; set; }
+        public int OrderId { get; set; }
 
-        public Costumer Costumer { get; set; }
 
-        [Required]
-        public int OrderInfoId { get; set; }
-
-        public virtual OrderInfo OrderInfo { get; set; }
+        public Order Order { get; set; }
 
     }
 }

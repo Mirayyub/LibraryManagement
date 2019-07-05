@@ -443,7 +443,7 @@ namespace LibraryManagement.Forms
 
             Order newOrder = new Order
             {
-                CustomerId=selectedCostumer.Id,
+                CostumerId=selectedCostumer.Id,
 
                 CreatedDate=DateTime.Now,
             };
@@ -481,14 +481,21 @@ namespace LibraryManagement.Forms
 
             foreach (var item in order)
             {
-                DgvOrderReturn.Rows.Add(item.Id,
-                                     item.CustomerId,
-                                     item.Costumer.FirstName+ " " + item.Costumer.LastName,
-                                     item.BookId,
-                                     item.Book,
-                                     item.Book.Count
-                                     
-                                     );
+                //DgvOrderReturn.Rows.Add(item.Id,
+                //                     item.CostumerId,
+                //                     item.Costumer.FirstName+ " " + item.Costumer.LastName,
+                //                     item.BookId,
+                //                     item.Book,
+                //                     item.Book.Count
+
+                //                     );
+
+                _context.OrderItems.Where(r => r.ReturnDate <= DateTime.Now).Select(r => new
+                {
+
+                    r.Order.Costumer.FirstName,
+                    r.Order.Costumer.LastName
+                }).ToList();
             }
         }
     }

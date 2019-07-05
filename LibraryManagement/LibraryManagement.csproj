@@ -85,32 +85,10 @@
     <Compile Include="Forms\UserPage.Designer.cs">
       <DependentUpon>UserPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907032305364_init.cs" />
-    <Compile Include="Migrations\201907032305364_init.Designer.cs">
-      <DependentUpon>201907032305364_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907041018148_AddOrderInfo.cs" />
-    <Compile Include="Migrations\201907041018148_AddOrderInfo.Designer.cs">
-      <DependentUpon>201907041018148_AddOrderInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907041021143_removeprice.cs" />
-    <Compile Include="Migrations\201907041021143_removeprice.Designer.cs">
-      <DependentUpon>201907041021143_removeprice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907041519277_AcademyComputer.cs" />
-    <Compile Include="Migrations\201907041519277_AcademyComputer.Designer.cs">
-      <DependentUpon>201907041519277_AcademyComputer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907041615418_CallOrder.cs" />
-    <Compile Include="Migrations\201907041615418_CallOrder.Designer.cs">
-      <DependentUpon>201907041615418_CallOrder.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\Configuration.cs" />
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\Costumer.cs" />
     <Compile Include="Model\Order.cs" />
-    <Compile Include="Model\OrderInfo.cs" />
     <Compile Include="Model\OrderItem.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
@@ -129,21 +107,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserPage.resx">
       <DependentUpon>UserPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907032305364_init.resx">
-      <DependentUpon>201907032305364_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907041018148_AddOrderInfo.resx">
-      <DependentUpon>201907041018148_AddOrderInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907041021143_removeprice.resx">
-      <DependentUpon>201907041021143_removeprice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907041519277_AcademyComputer.resx">
-      <DependentUpon>201907041519277_AcademyComputer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907041615418_CallOrder.resx">
-      <DependentUpon>201907041615418_CallOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -16,7 +16,7 @@ namespace LibraryManagement.Model
         {
             
 
-            orderitems = new HashSet<OrderItem>();
+            OrderItems = new HashSet<OrderItem>();
         }
 
         public int Id { get; set; }
@@ -32,6 +32,6 @@ namespace LibraryManagement.Model
 
        
 
-        public ICollection<OrderItem> orderitems { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; }
     }
 }

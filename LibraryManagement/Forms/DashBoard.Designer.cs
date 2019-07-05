@@ -73,17 +73,17 @@
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PnlReturnBook = new System.Windows.Forms.Panel();
+            this.BtnRBSubmit = new System.Windows.Forms.Button();
+            this.LblRBCount = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.LblRBDay = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.BtnRSearch = new System.Windows.Forms.Button();
             this.TxtRBCostumerPhoneNo = new System.Windows.Forms.TextBox();
             this.LblRCostumerPhone = new System.Windows.Forms.Label();
             this.LblRCostumerName = new System.Windows.Forms.Label();
             this.TxtRBCostumerName = new System.Windows.Forms.TextBox();
             this.PctExit = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.LblRBDay = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.LblRBCount = new System.Windows.Forms.Label();
-            this.BtnRBSubmit = new System.Windows.Forms.Button();
             this.PnlNewOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctEmptyBasket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctFullBasket)).BeginInit();
@@ -92,8 +92,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.NmrBookCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrderReturn)).BeginInit();
             this.PnlReturnBook.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctExit)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnBooksAbout
@@ -189,6 +189,7 @@
             // PnlNewOrders
             // 
             this.PnlNewOrders.Controls.Add(this.PctEmptyBasket);
+            this.PnlNewOrders.Controls.Add(this.PnlReturnBook);
             this.PnlNewOrders.Controls.Add(this.PctFullBasket);
             this.PnlNewOrders.Controls.Add(this.LblManat);
             this.PnlNewOrders.Controls.Add(this.panel1);
@@ -538,11 +539,57 @@
             this.PnlReturnBook.Controls.Add(this.LblRCostumerName);
             this.PnlReturnBook.Controls.Add(this.TxtRBCostumerName);
             this.PnlReturnBook.Controls.Add(this.DgvOrderReturn);
-            this.PnlReturnBook.Location = new System.Drawing.Point(172, 95);
+            this.PnlReturnBook.Location = new System.Drawing.Point(34, 247);
             this.PnlReturnBook.Name = "PnlReturnBook";
             this.PnlReturnBook.Size = new System.Drawing.Size(761, 386);
             this.PnlReturnBook.TabIndex = 43;
             this.PnlReturnBook.Visible = false;
+            // 
+            // BtnRBSubmit
+            // 
+            this.BtnRBSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(155)))), ((int)(((byte)(255)))));
+            this.BtnRBSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRBSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.BtnRBSubmit.Location = new System.Drawing.Point(607, 29);
+            this.BtnRBSubmit.Name = "BtnRBSubmit";
+            this.BtnRBSubmit.Size = new System.Drawing.Size(110, 42);
+            this.BtnRBSubmit.TabIndex = 50;
+            this.BtnRBSubmit.Text = "Qaytar";
+            this.BtnRBSubmit.UseVisualStyleBackColor = false;
+            // 
+            // LblRBCount
+            // 
+            this.LblRBCount.AutoSize = true;
+            this.LblRBCount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LblRBCount.Location = new System.Drawing.Point(161, 73);
+            this.LblRBCount.Name = "LblRBCount";
+            this.LblRBCount.Size = new System.Drawing.Size(54, 13);
+            this.LblRBCount.TabIndex = 49;
+            this.LblRBCount.Text = "Kitab Sayı";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(160, 89);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(110, 20);
+            this.numericUpDown1.TabIndex = 48;
+            // 
+            // LblRBDay
+            // 
+            this.LblRBDay.AutoSize = true;
+            this.LblRBDay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LblRBDay.Location = new System.Drawing.Point(161, 21);
+            this.LblRBDay.Name = "LblRBDay";
+            this.LblRBDay.Size = new System.Drawing.Size(77, 13);
+            this.LblRBDay.TabIndex = 47;
+            this.LblRBDay.Text = "Qaytarılan Gün";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(160, 36);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(110, 20);
+            this.dateTimePicker1.TabIndex = 46;
             // 
             // BtnRSearch
             // 
@@ -602,52 +649,6 @@
             this.PctExit.TabStop = false;
             this.PctExit.Click += new System.EventHandler(this.PctExit_Click);
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(160, 36);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(110, 20);
-            this.dateTimePicker1.TabIndex = 46;
-            // 
-            // LblRBDay
-            // 
-            this.LblRBDay.AutoSize = true;
-            this.LblRBDay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LblRBDay.Location = new System.Drawing.Point(161, 21);
-            this.LblRBDay.Name = "LblRBDay";
-            this.LblRBDay.Size = new System.Drawing.Size(77, 13);
-            this.LblRBDay.TabIndex = 47;
-            this.LblRBDay.Text = "Qaytarılan Gün";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(160, 89);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(110, 20);
-            this.numericUpDown1.TabIndex = 48;
-            // 
-            // LblRBCount
-            // 
-            this.LblRBCount.AutoSize = true;
-            this.LblRBCount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LblRBCount.Location = new System.Drawing.Point(161, 73);
-            this.LblRBCount.Name = "LblRBCount";
-            this.LblRBCount.Size = new System.Drawing.Size(54, 13);
-            this.LblRBCount.TabIndex = 49;
-            this.LblRBCount.Text = "Kitab Sayı";
-            // 
-            // BtnRBSubmit
-            // 
-            this.BtnRBSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(155)))), ((int)(((byte)(255)))));
-            this.BtnRBSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRBSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.BtnRBSubmit.Location = new System.Drawing.Point(607, 29);
-            this.BtnRBSubmit.Name = "BtnRBSubmit";
-            this.BtnRBSubmit.Size = new System.Drawing.Size(110, 42);
-            this.BtnRBSubmit.TabIndex = 50;
-            this.BtnRBSubmit.Text = "Qaytar";
-            this.BtnRBSubmit.UseVisualStyleBackColor = false;
-            // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -655,7 +656,6 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(970, 542);
             this.Controls.Add(this.PctExit);
-            this.Controls.Add(this.PnlReturnBook);
             this.Controls.Add(this.PnlNewOrders);
             this.Controls.Add(this.BtnAccount);
             this.Controls.Add(this.BtnTrackingAllOrders);
@@ -680,8 +680,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvOrderReturn)).EndInit();
             this.PnlReturnBook.ResumeLayout(false);
             this.PnlReturnBook.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PctExit)).EndInit();
             this.ResumeLayout(false);
 
         }

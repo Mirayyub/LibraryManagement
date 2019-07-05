@@ -11,21 +11,19 @@ namespace LibraryManagement.Model
     {
         public Order()
         {
-            orderitems = new HashSet<OrderItem>();
+            OrderItems = new HashSet<OrderItem>();
         }
         public int Id { get; set; }
 
         [Required]
-        public int CustomerId { get; set; }
+        public int CostumerId { get; set; }
 
         public Costumer Costumer { get; set; }
 
         [Required]
         public DateTime CreatedDate { get; set; }
 
-        public decimal TotalPrice { get; set; }
-
-        public ICollection<OrderItem> orderitems { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; }
 
 
     }
