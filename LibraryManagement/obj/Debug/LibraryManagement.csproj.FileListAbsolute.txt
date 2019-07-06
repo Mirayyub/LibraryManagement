@@ -69,9 +69,6 @@ C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\D
 C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Forms.DashBoard.resources
 C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Forms.Login.resources
 C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Forms.UserPage.resources
-C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Migrations.init.resources
-C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Migrations.AddOrderInfo.resources
-C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Migrations.removeprice.resources
 C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Properties.Resources.resources
 C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.csproj.GenerateResource.cache
 C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
@@ -101,6 +98,6 @@ C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\L
 C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.pdb
 C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Migrations.AcademyComputer.resources
 C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Migrations.CallOrder.resources
-C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Migrations.AcademyComputer.resources
-C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Migrations.CallOrder.resources
 C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Migrations.deletorde.resources
+C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Migrations.CreatedInit.resources
+C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Migrations.AddinbooltoOrit.resources

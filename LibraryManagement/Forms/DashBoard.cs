@@ -21,13 +21,16 @@ namespace LibraryManagement.Forms
         private Book _selectedbook;
 
         private decimal _totalmoney = 0;
-        
+
+        private OrderItem _selectedorderitem;
         
 
         public DashBoard()
         {
             InitializeComponent();
             _context = new LibraryContext();
+            FillCustomerList();
+            FillBookList();
 
         }
         
@@ -61,9 +64,8 @@ namespace LibraryManagement.Forms
 
         private void BtnCreateOrder_Click(object sender, EventArgs e)
         {
-            
-            FillCustomerList();
-            FillBookList();
+            CmbCostumerOrder.Text = string.Empty;
+            CmbBookOrder.Text = string.Empty;
             PnlNewOrders.Visible = true;
             LblPriceAllbooks.Text = "0";            
             BtnCreateOrder.BackColor = Color.RoyalBlue;
@@ -79,8 +81,9 @@ namespace LibraryManagement.Forms
             foreach (var item in _context.Costumers.ToList())
             {
                 CmbCostumerOrder.Items.Add(item.FirstName + " " + item.LastName);
+                
             }
-
+            
         }
         private void FillBookList()
         {
@@ -197,19 +200,19 @@ namespace LibraryManagement.Forms
         private void CalcMoneyFalseReturnDay()
         {
 
-            if (DateReturnDay.Value <= DateTime.Now.AddDays(7))
+            if (DateReturnDay.Value <= DateTime.Now.AddDays(5))
             {
                 LblPriceOrderLbl.Text = (_selectedbook.Price * NmrBookCount.Value).ToString();
             }
-            if (DateReturnDay.Value > DateTime.Now.AddDays(7) && DateReturnDay.Value <= DateTime.Now.AddDays(14))
+            if (DateReturnDay.Value > DateTime.Now.AddDays(5) && DateReturnDay.Value <= DateTime.Now.AddDays(10))
             {
                 LblPriceOrderLbl.Text = (_selectedbook.Price * 2 * NmrBookCount.Value).ToString();
             }
-            if (DateReturnDay.Value > DateTime.Now.AddDays(14) && DateReturnDay.Value <= DateTime.Now.AddDays(21))
+            if (DateReturnDay.Value > DateTime.Now.AddDays(10) && DateReturnDay.Value <= DateTime.Now.AddDays(20))
             {
                 LblPriceOrderLbl.Text = (_selectedbook.Price * 3 * NmrBookCount.Value).ToString();
             }
-            if (DateReturnDay.Value > DateTime.Now.AddDays(21) && DateReturnDay.Value <= DateTime.Now.AddMonths(1))
+            if (DateReturnDay.Value > DateTime.Now.AddDays(20) && DateReturnDay.Value <= DateTime.Now.AddMonths(1))
             {
                 LblPriceOrderLbl.Text = (_selectedbook.Price * 4 * NmrBookCount.Value).ToString();
             }
@@ -248,6 +251,10 @@ namespace LibraryManagement.Forms
 
         private void BtnAddNewOrder_Click(object sender, EventArgs e)
         {
+            if (!Validation())
+            {
+                return;
+            }
 
             if (!ValidateBookCountOnStock())
             {
@@ -308,26 +315,27 @@ namespace LibraryManagement.Forms
                 LblBookOrder.ForeColor = SystemColors.ControlText;
                 LblBookCount.ForeColor = SystemColors.ControlText;
                 LblDateTimeOrder.ForeColor = SystemColors.ControlText;
+                MessageBox.Show("Müştərini Düzgün Qeyd Edin", "Diqqət!");
 
                 return false;
             }
 
             if (string.IsNullOrEmpty(CmbBookOrder.Text))
             {
-                LblCostumer.ForeColor = Color.Red;
-                LblBookOrder.ForeColor = SystemColors.ControlText;
+                LblCostumer.ForeColor = SystemColors.ControlText;
+                LblBookOrder.ForeColor = Color.Red;
                 LblBookCount.ForeColor = SystemColors.ControlText;
                 LblDateTimeOrder.ForeColor = SystemColors.ControlText;
-
+                MessageBox.Show("Düzgün Qeyd Edin.", "Diqqət!");
                 return false;
             }
 
             if (DateReturnDay.Value < DateTime.Now)
             {
-                LblCostumer.ForeColor = Color.Red;
+                LblCostumer.ForeColor = SystemColors.ControlText;
                 LblBookOrder.ForeColor = SystemColors.ControlText;
                 LblBookCount.ForeColor = SystemColors.ControlText;
-                LblDateTimeOrder.ForeColor = SystemColors.ControlText;
+                LblDateTimeOrder.ForeColor = Color.Red;
 
                 MessageBox.Show("Qaytarma Vaxtını Keçmişə Qeyd Etmək Mümkün Deyil", "Diqqət!");
 
@@ -338,21 +346,11 @@ namespace LibraryManagement.Forms
             {
                 LblCostumer.ForeColor = Color.Red;
                 LblBookOrder.ForeColor = SystemColors.ControlText;
-                LblBookCount.ForeColor = SystemColors.ControlText;
+                LblBookCount.ForeColor = Color.Red;
                 LblDateTimeOrder.ForeColor = SystemColors.ControlText;
 
+                MessageBox.Show("Bu Kitabdan Kitabxanada Qalmayıbç Zəhmət Olmasa Sonra Müraciət edin.", "Diqqət!");
                 return false;
-            }
-
-            if (DateReturnDay.Value == DateTime.Now)
-            {
-                LblCostumer.ForeColor = Color.Red;
-                LblBookOrder.ForeColor = SystemColors.ControlText;
-                LblBookCount.ForeColor = SystemColors.ControlText;
-                LblDateTimeOrder.ForeColor = SystemColors.ControlText;
-
-                return false;
-
             }
 
             
@@ -364,7 +362,7 @@ namespace LibraryManagement.Forms
 
             CmbBookOrder.Enabled = true;
         }
-
+        #region MOUSE HOVER ARE DISABLED
         //private void BtnCreateOrder_MouseEnter(object sender, EventArgs e)
         //{
         //    BtnCreateOrder.BackColor = Color.RoyalBlue;
@@ -434,7 +432,7 @@ namespace LibraryManagement.Forms
         //{
         //    BtnUsersAbout.BackColor = Color.CornflowerBlue;
         //}
-
+        #endregion
         private void BtnSubmitOrders_Click(object sender, EventArgs e)
         {
             int id = _context.Costumers.FirstOrDefault(c => c.FirstName + " " + c.LastName == CmbCostumerOrder.Text).Id;
@@ -446,10 +444,36 @@ namespace LibraryManagement.Forms
                 CostumerId=selectedCostumer.Id,
 
                 CreatedDate=DateTime.Now,
+                
             };
 
             _context.Orders.Add(newOrder);
             _context.SaveChanges();
+
+
+            for (int i = 0; i < DgvBookDashboard.Rows.Count - 1; i++)
+            {
+
+                OrderItem orderItem = new OrderItem
+                {
+                    BookId = Convert.ToInt32(DgvBookDashboard.Rows[i].Cells[0].Value),
+                    Count = Convert.ToInt32(DgvBookDashboard.Rows[i].Cells[2].Value),
+                    PayPrice = Convert.ToInt32(DgvBookDashboard.Rows[i].Cells[4].Value),
+                    ReturnDate = Convert.ToDateTime(DgvBookDashboard.Rows[i].Cells[3].Value),
+                    OrderId = newOrder.Id
+
+                };
+
+                _context.OrderItems.Add(orderItem);
+                _context.SaveChanges();
+
+                this._totalmoney = 0;
+                LblPriceAllbooks.Text = (this._totalmoney).ToString();
+
+            }
+
+
+
             MessageBox.Show("Satış Müvəffəqiyyətlə yaddaşa yazıldı", "Diqqət!");
 
 
@@ -457,8 +481,6 @@ namespace LibraryManagement.Forms
             ResetForm();
             BtnAddNewOrder.Enabled = false;
             
-
-
 
 
         }
@@ -473,31 +495,98 @@ namespace LibraryManagement.Forms
 
         private void BtnRSearch_Click(object sender, EventArgs e)
         {
-            
+
             DgvOrderReturn.Rows.Clear();
 
 
-            List<OrderItem> order = _context.OrderItems.Where(o => o.Costumer.FirstName.Contains(TxtRBCostumerName.Text)).ToList();
+            List<OrderItem> orderitem = _context.OrderItems.Where(o => o.Order.Costumer.FirstName.Contains(TxtRBCostumerName.Text)).ToList();
 
-            foreach (var item in order)
+            foreach (var item in orderitem)
             {
-                //DgvOrderReturn.Rows.Add(item.Id,
-                //                     item.CostumerId,
-                //                     item.Costumer.FirstName+ " " + item.Costumer.LastName,
-                //                     item.BookId,
-                //                     item.Book,
-                //                     item.Book.Count
-
-                //                     );
-
-                _context.OrderItems.Where(r => r.ReturnDate <= DateTime.Now).Select(r => new
+                if (item.IsHave == false)
                 {
+                    DgvOrderReturn.Rows.Add(item.Id,
+                                     item.Order.Costumer.FirstName + " " + item.Order.Costumer.LastName,
+                                     item.Order.Costumer.PhoneNo,
+                                     item.Order.CreatedDate,
+                                     item.Book.Name,
+                                     item.Order.OrderItems.Count,
+                                            item.ReturnDate,
+                                            item.PayPrice
+                                     );
 
-                    r.Order.Costumer.FirstName,
-                    r.Order.Costumer.LastName
-                }).ToList();
+                }
+
+                
             }
         }
+
+        private void BtnRBSubmit_Click(object sender, EventArgs e)
+        {
+
+
+            if (nmrRBCouunt.Text == "" || nmrRBCouunt.Text == "0")
+            {
+                if (nmrRBCouunt.Text == "0")
+                {
+                    MessageBox.Show("Kitab Sayını Düzgün Qeyd Edin");
+                    return;
+                }
+                
+                MessageBox.Show("Kitab Sayını Düzgün Qeyd Edin");
+
+                return;
+            }
+
+            _selectedorderitem.IsHave = true;
+            _selectedorderitem.Book.Count += Convert.ToInt32(nmrRBCouunt.Value);
+
+
+            MessageBox.Show("Əməliyyat Uğurla Yerinə Yetirildi");
+            ResetRBForms();
+            _context.SaveChanges();
+
+            
+        }
+
+        private void ResetRBForms()
+        {
+            
+            TxtRBCostumerName.Text = string.Empty;           
+            nmrRBCouunt.Value = 0;
+            dateTimePickerRB.Value = DateTime.Now;
+            lblRbTotal.Text = "0";
+            DgvOrderReturn.Rows.Clear();
+
+        }
+
+
+
+        private void DgvOrderReturn_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+
+            int Id = Convert.ToInt32(DgvOrderReturn.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            _selectedorderitem = _context.OrderItems.Find(Id);
+            lblRbTotal.Text = (_totalmoney).ToString();
+            _totalmoney = _selectedorderitem.PayPrice;
+            dateTimePickerRB.Value = _selectedorderitem.ReturnDate;
+            nmrRBCouunt.Value = _selectedorderitem.Count;
+
+
+
+        }
     }
-    
 }
+
+
+
+//Umumi Panel ucun tracikng uun lazim olacaq
+//    _context.OrderItems.Where(r => r.ReturnDate <= DateTime.Now).Select(r => new
+//    {
+
+//        r.Order.Costumer.FirstName,
+//        r.Order.Costumer.LastName
+//    }).ToList();
+//}

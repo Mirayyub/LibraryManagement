@@ -21,6 +21,8 @@ namespace LibraryManagement.Model
         [Required]
         public int Count { get; set; }
 
+        public bool IsHave { get; set; }
+
         [Required]
         public decimal PayPrice { get; set; }
 

@@ -62,27 +62,25 @@
             this.CmbBookOrder = new System.Windows.Forms.ComboBox();
             this.LblCostumer = new System.Windows.Forms.Label();
             this.CmbCostumerOrder = new System.Windows.Forms.ComboBox();
+            this.PnlReturnBook = new System.Windows.Forms.Panel();
+            this.lblRbTotal = new System.Windows.Forms.Label();
+            this.BtnRBSubmit = new System.Windows.Forms.Button();
+            this.LblRBCount = new System.Windows.Forms.Label();
+            this.nmrRBCouunt = new System.Windows.Forms.NumericUpDown();
+            this.LblRBDay = new System.Windows.Forms.Label();
+            this.dateTimePickerRB = new System.Windows.Forms.DateTimePicker();
+            this.BtnRSearch = new System.Windows.Forms.Button();
+            this.LblRCostumerName = new System.Windows.Forms.Label();
+            this.TxtRBCostumerName = new System.Windows.Forms.TextBox();
             this.DgvOrderReturn = new System.Windows.Forms.DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PnlReturnBook = new System.Windows.Forms.Panel();
-            this.BtnRBSubmit = new System.Windows.Forms.Button();
-            this.LblRBCount = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.LblRBDay = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.BtnRSearch = new System.Windows.Forms.Button();
-            this.TxtRBCostumerPhoneNo = new System.Windows.Forms.TextBox();
-            this.LblRCostumerPhone = new System.Windows.Forms.Label();
-            this.LblRCostumerName = new System.Windows.Forms.Label();
-            this.TxtRBCostumerName = new System.Windows.Forms.TextBox();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PctExit = new System.Windows.Forms.PictureBox();
             this.PnlNewOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctEmptyBasket)).BeginInit();
@@ -90,9 +88,9 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvBookDashboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmrBookCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvOrderReturn)).BeginInit();
             this.PnlReturnBook.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrRBCouunt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvOrderReturn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctExit)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,7 +187,6 @@
             // PnlNewOrders
             // 
             this.PnlNewOrders.Controls.Add(this.PctEmptyBasket);
-            this.PnlNewOrders.Controls.Add(this.PnlReturnBook);
             this.PnlNewOrders.Controls.Add(this.PctFullBasket);
             this.PnlNewOrders.Controls.Add(this.LblManat);
             this.PnlNewOrders.Controls.Add(this.panel1);
@@ -458,138 +455,81 @@
             this.CmbCostumerOrder.TabIndex = 22;
             this.CmbCostumerOrder.SelectedIndexChanged += new System.EventHandler(this.CmbCostumerOrder_SelectedIndexChanged);
             // 
-            // DgvOrderReturn
-            // 
-            this.DgvOrderReturn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DgvOrderReturn.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.DgvOrderReturn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvOrderReturn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column6,
-            this.Column13,
-            this.Column7,
-            this.Column14,
-            this.Column8,
-            this.Column9,
-            this.Column10,
-            this.Column11,
-            this.Column12});
-            this.DgvOrderReturn.Location = new System.Drawing.Point(0, 172);
-            this.DgvOrderReturn.Name = "DgvOrderReturn";
-            this.DgvOrderReturn.Size = new System.Drawing.Size(758, 176);
-            this.DgvOrderReturn.TabIndex = 33;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Id";
-            this.Column6.Name = "Column6";
-            this.Column6.Visible = false;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "CostumerId";
-            this.Column13.Name = "Column13";
-            this.Column13.Visible = false;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Müştəri";
-            this.Column7.Name = "Column7";
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "BookId";
-            this.Column14.Name = "Column14";
-            this.Column14.Visible = false;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Kitab";
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Say";
-            this.Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Sifariş Vaxtı";
-            this.Column10.Name = "Column10";
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Qaytarma Vaxtı";
-            this.Column11.Name = "Column11";
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Qiymət";
-            this.Column12.Name = "Column12";
-            // 
             // PnlReturnBook
             // 
+            this.PnlReturnBook.Controls.Add(this.lblRbTotal);
             this.PnlReturnBook.Controls.Add(this.BtnRBSubmit);
             this.PnlReturnBook.Controls.Add(this.LblRBCount);
-            this.PnlReturnBook.Controls.Add(this.numericUpDown1);
+            this.PnlReturnBook.Controls.Add(this.nmrRBCouunt);
             this.PnlReturnBook.Controls.Add(this.LblRBDay);
-            this.PnlReturnBook.Controls.Add(this.dateTimePicker1);
+            this.PnlReturnBook.Controls.Add(this.dateTimePickerRB);
             this.PnlReturnBook.Controls.Add(this.BtnRSearch);
-            this.PnlReturnBook.Controls.Add(this.TxtRBCostumerPhoneNo);
-            this.PnlReturnBook.Controls.Add(this.LblRCostumerPhone);
             this.PnlReturnBook.Controls.Add(this.LblRCostumerName);
             this.PnlReturnBook.Controls.Add(this.TxtRBCostumerName);
             this.PnlReturnBook.Controls.Add(this.DgvOrderReturn);
-            this.PnlReturnBook.Location = new System.Drawing.Point(34, 247);
+            this.PnlReturnBook.Location = new System.Drawing.Point(160, 98);
             this.PnlReturnBook.Name = "PnlReturnBook";
             this.PnlReturnBook.Size = new System.Drawing.Size(761, 386);
             this.PnlReturnBook.TabIndex = 43;
             this.PnlReturnBook.Visible = false;
+            // 
+            // lblRbTotal
+            // 
+            this.lblRbTotal.AutoSize = true;
+            this.lblRbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblRbTotal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblRbTotal.Location = new System.Drawing.Point(618, 68);
+            this.lblRbTotal.Name = "lblRbTotal";
+            this.lblRbTotal.Size = new System.Drawing.Size(25, 25);
+            this.lblRbTotal.TabIndex = 51;
+            this.lblRbTotal.Text = "0";
             // 
             // BtnRBSubmit
             // 
             this.BtnRBSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(155)))), ((int)(((byte)(255)))));
             this.BtnRBSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnRBSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.BtnRBSubmit.Location = new System.Drawing.Point(607, 29);
+            this.BtnRBSubmit.Location = new System.Drawing.Point(224, 124);
             this.BtnRBSubmit.Name = "BtnRBSubmit";
             this.BtnRBSubmit.Size = new System.Drawing.Size(110, 42);
             this.BtnRBSubmit.TabIndex = 50;
             this.BtnRBSubmit.Text = "Qaytar";
             this.BtnRBSubmit.UseVisualStyleBackColor = false;
+            this.BtnRBSubmit.Click += new System.EventHandler(this.BtnRBSubmit_Click);
             // 
             // LblRBCount
             // 
             this.LblRBCount.AutoSize = true;
             this.LblRBCount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LblRBCount.Location = new System.Drawing.Point(161, 73);
+            this.LblRBCount.Location = new System.Drawing.Point(225, 72);
             this.LblRBCount.Name = "LblRBCount";
             this.LblRBCount.Size = new System.Drawing.Size(54, 13);
             this.LblRBCount.TabIndex = 49;
             this.LblRBCount.Text = "Kitab Sayı";
             // 
-            // numericUpDown1
+            // nmrRBCouunt
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(160, 89);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(110, 20);
-            this.numericUpDown1.TabIndex = 48;
+            this.nmrRBCouunt.Location = new System.Drawing.Point(224, 88);
+            this.nmrRBCouunt.Name = "nmrRBCouunt";
+            this.nmrRBCouunt.Size = new System.Drawing.Size(110, 20);
+            this.nmrRBCouunt.TabIndex = 48;
             // 
             // LblRBDay
             // 
             this.LblRBDay.AutoSize = true;
             this.LblRBDay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LblRBDay.Location = new System.Drawing.Point(161, 21);
+            this.LblRBDay.Location = new System.Drawing.Point(225, 20);
             this.LblRBDay.Name = "LblRBDay";
             this.LblRBDay.Size = new System.Drawing.Size(77, 13);
             this.LblRBDay.TabIndex = 47;
             this.LblRBDay.Text = "Qaytarılan Gün";
             // 
-            // dateTimePicker1
+            // dateTimePickerRB
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(160, 36);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(110, 20);
-            this.dateTimePicker1.TabIndex = 46;
+            this.dateTimePickerRB.Location = new System.Drawing.Point(224, 35);
+            this.dateTimePickerRB.Name = "dateTimePickerRB";
+            this.dateTimePickerRB.Size = new System.Drawing.Size(110, 20);
+            this.dateTimePickerRB.TabIndex = 46;
             // 
             // BtnRSearch
             // 
@@ -603,23 +543,6 @@
             this.BtnRSearch.Text = "Axtar";
             this.BtnRSearch.UseVisualStyleBackColor = false;
             this.BtnRSearch.Click += new System.EventHandler(this.BtnRSearch_Click);
-            // 
-            // TxtRBCostumerPhoneNo
-            // 
-            this.TxtRBCostumerPhoneNo.Location = new System.Drawing.Point(22, 89);
-            this.TxtRBCostumerPhoneNo.Name = "TxtRBCostumerPhoneNo";
-            this.TxtRBCostumerPhoneNo.Size = new System.Drawing.Size(100, 20);
-            this.TxtRBCostumerPhoneNo.TabIndex = 38;
-            // 
-            // LblRCostumerPhone
-            // 
-            this.LblRCostumerPhone.AutoSize = true;
-            this.LblRCostumerPhone.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LblRCostumerPhone.Location = new System.Drawing.Point(19, 73);
-            this.LblRCostumerPhone.Name = "LblRCostumerPhone";
-            this.LblRCostumerPhone.Size = new System.Drawing.Size(84, 13);
-            this.LblRCostumerPhone.TabIndex = 36;
-            this.LblRCostumerPhone.Text = "Telefon Nömrəsi";
             // 
             // LblRCostumerName
             // 
@@ -637,6 +560,67 @@
             this.TxtRBCostumerName.Name = "TxtRBCostumerName";
             this.TxtRBCostumerName.Size = new System.Drawing.Size(100, 20);
             this.TxtRBCostumerName.TabIndex = 34;
+            // 
+            // DgvOrderReturn
+            // 
+            this.DgvOrderReturn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvOrderReturn.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.DgvOrderReturn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvOrderReturn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13});
+            this.DgvOrderReturn.Location = new System.Drawing.Point(3, 172);
+            this.DgvOrderReturn.Name = "DgvOrderReturn";
+            this.DgvOrderReturn.Size = new System.Drawing.Size(758, 176);
+            this.DgvOrderReturn.TabIndex = 33;
+            this.DgvOrderReturn.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvOrderReturn_RowHeaderMouseDoubleClick);
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Id";
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Müştəri";
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Telefon Nömrəsi";
+            this.Column8.Name = "Column8";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Sifarişin Yaranma Vaxtı";
+            this.Column9.Name = "Column9";
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Kitab";
+            this.Column10.Name = "Column10";
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Sayı";
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Qaytarma Vaxtı";
+            this.Column12.Name = "Column12";
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Qiymət";
+            this.Column13.Name = "Column13";
             // 
             // PctExit
             // 
@@ -656,6 +640,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(970, 542);
             this.Controls.Add(this.PctExit);
+            this.Controls.Add(this.PnlReturnBook);
             this.Controls.Add(this.PnlNewOrders);
             this.Controls.Add(this.BtnAccount);
             this.Controls.Add(this.BtnTrackingAllOrders);
@@ -677,10 +662,10 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvBookDashboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmrBookCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvOrderReturn)).EndInit();
             this.PnlReturnBook.ResumeLayout(false);
             this.PnlReturnBook.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrRBCouunt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvOrderReturn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PctExit)).EndInit();
             this.ResumeLayout(false);
 
@@ -708,15 +693,6 @@
         private System.Windows.Forms.ComboBox CmbCostumerOrder;
         private System.Windows.Forms.Button BtnRemoveList;
         private System.Windows.Forms.DataGridView DgvOrderReturn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.Button BtnSubmitOrders;
         private System.Windows.Forms.Label LblPriceAllbooks;
         private System.Windows.Forms.DataGridView DgvBookDashboard;
@@ -732,15 +708,22 @@
         private System.Windows.Forms.PictureBox PctFullBasket;
         private System.Windows.Forms.Panel PnlReturnBook;
         private System.Windows.Forms.PictureBox PctExit;
-        private System.Windows.Forms.TextBox TxtRBCostumerPhoneNo;
-        private System.Windows.Forms.Label LblRCostumerPhone;
         private System.Windows.Forms.Label LblRCostumerName;
         private System.Windows.Forms.TextBox TxtRBCostumerName;
         private System.Windows.Forms.Button BtnRSearch;
         private System.Windows.Forms.Label LblRBCount;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nmrRBCouunt;
         private System.Windows.Forms.Label LblRBDay;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerRB;
         private System.Windows.Forms.Button BtnRBSubmit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.Label lblRbTotal;
     }
 }
