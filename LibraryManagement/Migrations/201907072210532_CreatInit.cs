@@ -3,7 +3,7 @@ namespace LibraryManagement.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CreatedInit : DbMigration
+    public partial class CreatInit : DbMigration
     {
         public override void Up()
         {
@@ -25,6 +25,7 @@ namespace LibraryManagement.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         BookId = c.Int(nullable: false),
                         Count = c.Int(nullable: false),
+                        IsHave = c.Boolean(nullable: false),
                         PayPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
                         ReturnDate = c.DateTime(nullable: false),
                         OrderId = c.Int(nullable: false),

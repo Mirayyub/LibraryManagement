@@ -99,5 +99,5 @@ C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\L
 C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Migrations.AcademyComputer.resources
 C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Migrations.CallOrder.resources
 C:\Users\Mir AyyubAb\Desktop\C# Library Management\LibraryManagement\obj\Debug\LibraryManagement.Migrations.deletorde.resources
-C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Migrations.CreatedInit.resources
-C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Migrations.AddinbooltoOrit.resources
+C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.Migrations.CreatInit.resources
+C:\Users\User\Desktop\Course\C#\C# LibraryManagementnew1\LibraryManagement\obj\Debug\LibraryManagement.csproj.ResolveComReference.cache
