@@ -15,32 +15,45 @@ namespace LibraryManagement.Forms
 {
     public partial class DashBoard : Form
     {
-
+        #region Connections Database
         private readonly LibraryContext _context;
+        #endregion
+
+        #region Models 
 
         private Book _selectedbook;
+
+        private OrderItem _selectedorderitem;
+
+        #endregion
+
+        #region DashBoard Values
 
         private decimal _rbtotalmoney;
 
         private decimal _totalmoney = 0;
 
-        private OrderItem _selectedorderitem;
+       
+
+        #endregion
 
 
         public DashBoard()
         {
             InitializeComponent();
             _context = new LibraryContext();
-            FillCustomerList();
-            FillBookList();
+           
 
         }
+
+
+        #region Pages Buttons
 
         private void BtnBooksAbout_Click(object sender, EventArgs e)
         {
             BookPg ss = new BookPg();
 
-            ss.Show();
+            ss.ShowDialog();
 
 
         }
@@ -49,14 +62,14 @@ namespace LibraryManagement.Forms
         {
             CostumerPg ss = new CostumerPg();
 
-            ss.Show();
+            ss.ShowDialog();
         }
 
         private void BtnUsersAbout_Click(object sender, EventArgs e)
         {
             UserPage ss = new UserPage();
 
-            ss.Show();
+            ss.ShowDialog();
         }
 
         private void DashBoard_FormClosing(object sender, FormClosingEventArgs e)
@@ -64,8 +77,77 @@ namespace LibraryManagement.Forms
             Application.Exit();
         }
 
+
+
+        private void PctExit_Click(object sender, EventArgs e)
+        {
+            Login ss = new Login();
+
+            this.Hide();
+            ss.Show();
+        }
+        #endregion
+
+        #region Create Order Panel Functions And Buttons
+        private void BtnAddNewOrderNew_Click(object sender, EventArgs e)
+        {
+            if (!Validation())
+            {
+                return;
+            }
+
+            if (!ValidateBookCountOnStock())
+            {
+
+                return;
+            }
+
+            var money = Convert.ToDecimal(LblPriceOrderLbl.Text);
+
+            DgvBookDashboard.Rows.Add(_selectedbook.Id, _selectedbook.Name, NmrBookCount.Value, DateReturnDay.Value, money);
+
+            _selectedbook.Count += Convert.ToInt32(NmrBookCount.Value);
+
+            CmbCostumerOrder.Enabled = false;
+            CmbBookOrder.Text = string.Empty;
+            NmrBookCount.Value = 1;
+            LblPriceOrderLbl.Text = " ";
+            BtnRemoveList.Visible = false;
+            BtnSubmitOrders.Visible = true;
+            BtnAddNewOrderNew.Enabled = false;
+            _totalmoney += money;
+
+            LblPriceAllbooks.Text = _totalmoney.ToString();
+
+            BtnPnlResetForm();
+            DateReturnDay.Enabled = false;
+            NmrBookCount.Enabled = false;
+            LblPriceOrderLbl.Enabled = false;
+            PctEmptyBasket.Visible = false;
+            PctFullBasket.Visible = true;
+            BtnRemoveList.Visible = true;
+        }
+
+
+
+        private void NmrBookCount_ValueChanged_1(object sender, EventArgs e)
+        {
+            BtnAddNewOrderNew.Enabled = true;
+            CalcMoneyCountAllBook();
+            CalcMoneyFalseReturnDay();
+        }
+
+        private void DateReturnDay_ValueChanged_1(object sender, EventArgs e)
+        {
+            CalcMoneyFalseReturnDay();
+
+            BtnAddNewOrderNew.Enabled = true;
+
+        }
+
         private void BtnCreateOrder_Click(object sender, EventArgs e)
         {
+            
             CmbCostumerOrder.Text = string.Empty;
             CmbBookOrder.Text = string.Empty;
             PnlNewOrders.Visible = true;
@@ -79,56 +161,8 @@ namespace LibraryManagement.Forms
             PnlAccount.Visible = false;
             BtnAccount.BackColor = Color.CornflowerBlue;
             PnlLibraryApp.Visible = false;
+            DashBoardtxtcmbReset();
         }
-
-
-        private void FillCustomerList()
-        {
-            foreach (var item in _context.Costumers.ToList())
-            {
-                CmbCostumerOrder.Items.Add(item.FirstName + " " + item.LastName);
-
-            }
-
-        }
-        private void FillBookList()
-        {
-            foreach (var item in _context.Books.ToList())
-            {
-                CmbBookOrder.Items.Add(item.Name);
-            }
-        }
-
-        private void BtnReturnBook_Click(object sender, EventArgs e)
-        {
-            PnlNewOrders.Visible = false;
-            PnlTrackingOrders.Visible = false;
-            PnlReturnBook.Visible = true;
-            PnlAccount.Visible = false;
-            BtnTrackingAllOrders.BackColor = Color.CornflowerBlue;
-            BtnCreateOrder.BackColor = Color.CornflowerBlue;
-            BtnReturnBook.BackColor = Color.RoyalBlue;
-            BtnAccount.BackColor = Color.CornflowerBlue;
-            PnlLibraryApp.Visible = false;
-
-
-
-
-        }
-
-        private void BtnTrackingAllOrders_Click(object sender, EventArgs e)
-        {
-            PnlReturnBook.Visible = false;
-            PnlTrackingOrders.Visible = true;
-            PnlNewOrders.Visible = false;
-            PnlAccount.Visible = false;
-            BtnTrackingAllOrders.BackColor = Color.RoyalBlue;
-            BtnCreateOrder.BackColor = Color.CornflowerBlue;
-            BtnReturnBook.BackColor = Color.CornflowerBlue;
-            BtnAccount.BackColor = Color.CornflowerBlue;
-            PnlLibraryApp.Visible = false;
-        }
-
         private void BtnPnlResetForm()
         {
             LblBookOrder.ForeColor = SystemColors.ControlText;
@@ -137,8 +171,8 @@ namespace LibraryManagement.Forms
 
             CmbBookOrder.Text = string.Empty;
             DateReturnDay.Value = DateTime.Now;
-            NmrBookCount.Text = "1";
-            LblPriceOrderLbl.Text = " ";
+            NmrBookCount.Value = 1;
+            LblPriceOrderLbl.Text = "0";
 
 
         }
@@ -160,34 +194,39 @@ namespace LibraryManagement.Forms
 
         }
 
-
-        private void ResetForm()
+        private void FillCustomerList()
         {
+            foreach (var item in _context.Costumers.ToList())
+            {
+                CmbCostumerOrder.Items.Add(item.FirstName + " " + item.LastName);
 
-            CmbBookOrder.Enabled = false;
-            NmrBookCount.Enabled = false;
-            DateReturnDay.Enabled = false;
-            LblPriceOrderLbl.Enabled = false;
-            CmbCostumerOrder.Enabled = true;
-            BtnSubmitOrders.Visible = false;
-            BtnAddNewOrderNew.Enabled = false;
-            PctEmptyBasket.Visible = true;
-            PctFullBasket.Visible = false;
-            DgvBookDashboard.Rows.Clear();
-            LblPriceAllbooks.Text = "0";
-            NmrBookCount.Text = "0";
-            LblPriceOrderLbl.Text = " ";
-            CmbCostumerOrder.Text = string.Empty;
-            CmbBookOrder.Text = string.Empty;
-            DateReturnDay.Value = DateTime.Now;
-            LblCostumer.ForeColor = SystemColors.ControlText;
-            LblBookOrder.ForeColor = SystemColors.ControlText;
-            LblBookCount.ForeColor = SystemColors.ControlText;
-            LblDateTimeOrder.ForeColor = SystemColors.ControlText;
-
+            }
 
         }
+        private void FillBookList()
+        {
+            foreach (var item in _context.Books.ToList())
+            {
+                CmbBookOrder.Items.Add(item.Name);
+            }
+        }
+        private void BtnRemoveList_Click(object sender, EventArgs e)
+        {
+            CmbBookOrder.Text = string.Empty;
+            DateReturnDay.Value = DateTime.Now;
+            NmrBookCount.Value = 1;
+            NmrBookCount.Enabled = false;
+            DateReturnDay.Enabled = false;
+            LblPriceOrderLbl.Text = "0";
+            LblPriceAllbooks.Text = "0";
+            BtnRemoveList.Visible = false;
+            BtnAddNewOrderNew.Enabled = false;
+            DgvBookDashboard.Rows.Clear();
+            BtnSubmitOrders.Visible = false;
+            PctEmptyBasket.Visible = true;
+            PctFullBasket.Visible = false;
 
+        }
 
         private void CalcMoneyCountAllBook()
         {
@@ -250,25 +289,12 @@ namespace LibraryManagement.Forms
 
         }
 
-
-
-
-        private void DateReturnDay_ValueChanged(object sender, EventArgs e)
-        {
-            CalcMoneyFalseReturnDay();
-        }
-
-
-
-        
-
-
         private bool ValidateBookCountOnStock()
         {
 
             if (NmrBookCount.Value > _selectedbook.Count)
             {
-                LblBookCount.ForeColor = Color.Red;
+
                 MessageBox.Show("Kitab Sayı Qeyd Olunandan Azdır.", "Diqqət!");
                 return false;
             }
@@ -284,10 +310,6 @@ namespace LibraryManagement.Forms
         {
             if (string.IsNullOrEmpty(CmbCostumerOrder.Text))
             {
-                LblCostumer.ForeColor = Color.Red;
-                LblBookOrder.ForeColor = SystemColors.ControlText;
-                LblBookCount.ForeColor = SystemColors.ControlText;
-                LblDateTimeOrder.ForeColor = SystemColors.ControlText;
                 MessageBox.Show("Müştərini Düzgün Qeyd Edin", "Diqqət!");
 
                 return false;
@@ -295,20 +317,13 @@ namespace LibraryManagement.Forms
 
             if (string.IsNullOrEmpty(CmbBookOrder.Text))
             {
-                LblCostumer.ForeColor = SystemColors.ControlText;
-                LblBookOrder.ForeColor = Color.Red;
-                LblBookCount.ForeColor = SystemColors.ControlText;
-                LblDateTimeOrder.ForeColor = SystemColors.ControlText;
+
                 MessageBox.Show("Düzgün Qeyd Edin.", "Diqqət!");
                 return false;
             }
 
-            if (DateReturnDay.Value < DateTime.Now)
+            if (DateReturnDay.Value <= DateTime.Now)
             {
-                LblCostumer.ForeColor = SystemColors.ControlText;
-                LblBookOrder.ForeColor = SystemColors.ControlText;
-                LblBookCount.ForeColor = SystemColors.ControlText;
-                LblDateTimeOrder.ForeColor = Color.Red;
 
                 MessageBox.Show("Qaytarma Vaxtını Keçmişə Qeyd Etmək Mümkün Deyil", "Diqqət!");
 
@@ -317,12 +332,8 @@ namespace LibraryManagement.Forms
 
             if (NmrBookCount.Value == 0)
             {
-                LblCostumer.ForeColor = Color.Red;
-                LblBookOrder.ForeColor = SystemColors.ControlText;
-                LblBookCount.ForeColor = Color.Red;
-                LblDateTimeOrder.ForeColor = SystemColors.ControlText;
 
-                MessageBox.Show("Bu Kitabdan Kitabxanada Qalmayıbç Zəhmət Olmasa Sonra Müraciət edin.", "Diqqət!");
+                MessageBox.Show("Bu Kitabdan Kitabxanada Qalmayıb Zəhmət Olmasa Sonra Müraciət edin.", "Diqqət!");
                 return false;
             }
 
@@ -335,86 +346,16 @@ namespace LibraryManagement.Forms
 
             CmbBookOrder.Enabled = true;
         }
-        #region MOUSE HOVER ARE DISABLED
-        //private void BtnCreateOrder_MouseEnter(object sender, EventArgs e)
-        //{
-        //    BtnCreateOrder.BackColor = Color.RoyalBlue;
-        //}
 
-        //private void BtnCreateOrder_MouseLeave(object sender, EventArgs e)
-        //{
-        //    BtnCreateOrder.BackColor = Color.CornflowerBlue;
-        //}
-
-        //private void BtnReturnBook_MouseEnter(object sender, EventArgs e)
-        //{
-        //    BtnReturnBook.BackColor = Color.RoyalBlue;
-        //}
-
-        //private void BtnReturnBook_MouseLeave(object sender, EventArgs e)
-        //{
-        //    BtnReturnBook.BackColor = Color.CornflowerBlue;
-        //}
-
-        //private void BtnTrackingAllOrders_MouseEnter(object sender, EventArgs e)
-        //{
-        //    BtnTrackingAllOrders.BackColor = Color.RoyalBlue;
-        //}
-
-        //private void BtnTrackingAllOrders_MouseLeave(object sender, EventArgs e)
-        //{
-        //    BtnTrackingAllOrders.BackColor = Color.CornflowerBlue;
-        //}
-
-        //private void BtnBooksAbout_MouseEnter(object sender, EventArgs e)
-        //{
-        //    BtnBooksAbout.BackColor = Color.RoyalBlue;
-        //}
-
-        //private void BtnBooksAbout_MouseLeave(object sender, EventArgs e)
-        //{
-        //    BtnBooksAbout.BackColor = Color.CornflowerBlue;
-        //}
-
-        //private void BtnCostumersAbout_MouseEnter(object sender, EventArgs e)
-        //{
-        //    BtnCostumersAbout.BackColor = Color.RoyalBlue;
-        //}
-
-        //private void BtnCostumersAbout_MouseLeave(object sender, EventArgs e)
-        //{
-        //    BtnCostumersAbout.BackColor = Color.CornflowerBlue;
-        //}
-
-        //private void BtnAccount_MouseEnter(object sender, EventArgs e)
-        //{
-        //    BtnAccount.BackColor = Color.RoyalBlue;
-        //}
-
-        //private void BtnAccount_MouseLeave(object sender, EventArgs e)
-        //{
-        //    BtnAccount.BackColor = Color.CornflowerBlue;
-        //}
-
-        //private void BtnUsersAbout_MouseEnter(object sender, EventArgs e)
-        //{
-        //    BtnUsersAbout.BackColor = Color.RoyalBlue;
-        //}
-
-        //private void BtnUsersAbout_MouseLeave(object sender, EventArgs e)
-        //{
-        //    BtnUsersAbout.BackColor = Color.CornflowerBlue;
-        //}
-        #endregion
         private void BtnSubmitOrders_Click(object sender, EventArgs e)
         {
             int id = _context.Costumers.FirstOrDefault(c => c.FirstName + " " + c.LastName == CmbCostumerOrder.Text).Id;
 
-            var selectedcostumer = _context.Costumers.Find(id);
+            var costumer = _context.Costumers.Find(id);
 
             Order neworder = new Order
             {
-                CostumerId = selectedcostumer.Id,
+                CostumerId = costumer.Id,
 
                 CreatedDate = DateTime.Now,
 
@@ -443,6 +384,7 @@ namespace LibraryManagement.Forms
                 this._totalmoney = 0;
                 LblPriceAllbooks.Text = (this._totalmoney).ToString();
 
+
             }
 
 
@@ -453,19 +395,35 @@ namespace LibraryManagement.Forms
             BtnPnlResetForm();
             ResetForm();
             BtnAddNewOrderNew.Enabled = false;
-
+            BtnRemoveList.Visible = false;
 
 
         }
+        #endregion
 
-        private void PctExit_Click(object sender, EventArgs e)
+        #region Return Book Panel Functions And Buttons
+        private void BtnReturnBook_Click(object sender, EventArgs e)
         {
-            Login ss = new Login();
+            PnlNewOrders.Visible = false;
+            PnlTrackingOrders.Visible = false;
+            PnlReturnBook.Visible = true;
+            PnlAccount.Visible = false;
+            BtnTrackingAllOrders.BackColor = Color.CornflowerBlue;
+            BtnCreateOrder.BackColor = Color.CornflowerBlue;
+            BtnReturnBook.BackColor = Color.RoyalBlue;
+            BtnAccount.BackColor = Color.CornflowerBlue;
+            PnlLibraryApp.Visible = false;
+            DashBoardtxtcmbReset();
 
-            this.Hide();
-            ss.Show();
+
+
+
+
         }
-
+        private void DateReturnDay_ValueChanged(object sender, EventArgs e)
+        {
+            CalcMoneyFalseReturnDay();
+        }
         private void BtnRSearch_Click(object sender, EventArgs e)
         {
             DgvOrderReturn.Rows.Clear();
@@ -487,14 +445,30 @@ namespace LibraryManagement.Forms
 
             }
         }
+        private void DgvOrderReturn_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+
+            int Id = Convert.ToInt32(DgvOrderReturn.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            _selectedorderitem = _context.OrderItems.Find(Id);
+            _totalmoney = _selectedorderitem.PayPrice;
+            dateTimePickerRB.Value = _selectedorderitem.ReturnDate;
+            LblRbCountValue.Text = _selectedorderitem.Count.ToString();
+            lblRbTotal.Text = (_totalmoney).ToString();
+
+
+
+
+        }
 
         private void BtnRBSubmit_Click(object sender, EventArgs e)
         {
 
 
-            if (nmrRBCouunt.Text == "" || nmrRBCouunt.Text == "0")
+            if (LblRbCountValue.Text == "" || LblRbCountValue.Text == "0")
             {
-                if (nmrRBCouunt.Text == "0")
+                if (LblRbCountValue.Text == "0")
                 {
                     MessageBox.Show("Kitab Sayını Düzgün Qeyd Edin");
                     return;
@@ -506,7 +480,7 @@ namespace LibraryManagement.Forms
             }
 
             _selectedorderitem.IsHave = true;
-            _selectedorderitem.Book.Count += Convert.ToInt32(nmrRBCouunt.Value);
+            _selectedorderitem.Book.Count += Convert.ToInt32(LblRbCountValue.Text);
             _selectedorderitem.PayPrice = _rbtotalmoney;
 
             MessageBox.Show("Əməliyyat Uğurla Yerinə Yetirildi");
@@ -522,7 +496,7 @@ namespace LibraryManagement.Forms
         {
 
             TxtRBCostumerName.Text = string.Empty;
-            nmrRBCouunt.Value = 0;
+            LblRbCountValue.Text = "0";
             dateTimePickerRB.Value = DateTime.Now;
             lblRbTotal.Text = "0";
             DgvOrderReturn.Rows.Clear();
@@ -530,44 +504,12 @@ namespace LibraryManagement.Forms
         }
 
 
+        #endregion
 
-        private void DgvOrderReturn_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        #region Tracking Panel Functions And Buttons
+        private void FillNowOrders()
         {
-
-
-            int Id = Convert.ToInt32(DgvOrderReturn.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-            _selectedorderitem = _context.OrderItems.Find(Id);
-            lblRbTotal.Text = (_totalmoney).ToString();
-            _totalmoney = _selectedorderitem.PayPrice;
-            dateTimePickerRB.Value = _selectedorderitem.ReturnDate;
-            nmrRBCouunt.Value = _selectedorderitem.Count;
-
-
-
-        }
-
-        private void FillTodayOrders()
-        {
-            DgvTracking.Rows.Clear();
-
-
-            var today = DateTime.Now.Date;
-            var tomor = today.AddHours(24);
-
-            List<OrderItem> orderitems = _context.OrderItems.Include("Book").Include("Order").Include("Order.Costumer").Where(o => o.ReturnDate > today && o.ReturnDate < tomor && o.IsHave == false).ToList();
-
-            foreach (var item in orderitems)
-            {
-                DgvTracking.Rows.Add(item.Id,
-                                    item.Order.Costumer.FirstName + " " + item.Order.Costumer.LastName,
-                                    item.Book.Name,
-                                    item.Count,
-                                    item.Order.CreatedDate,
-                                    item.ReturnDate,
-                                    item.PayPrice);
-
-            }
+            
 
 
 
@@ -581,11 +523,11 @@ namespace LibraryManagement.Forms
 
             DgvTracking.Rows.Clear();
 
-            var today = DateTime.Now.Date;
-            var StartDate = today.AddHours(24);
-            var EndDate = today.AddHours(48);
+            var now = DateTime.Now.Date;
+            var createdate = now.AddHours(24);
+            var returndate = now.AddHours(48);
 
-            List<OrderItem> orderitems = _context.OrderItems.Include("Book").Include("Order").Include("Order.Costumer").Where(o => o.ReturnDate > StartDate && o.ReturnDate < EndDate && o.IsHave == false).ToList();
+            List<OrderItem> orderitems = _context.OrderItems.Include("Book").Include("Order").Include("Order.Costumer").Where(o => o.ReturnDate > createdate && o.ReturnDate < returndate && o.IsHave == false).ToList();
 
             foreach (var item in orderitems)
             {
@@ -600,9 +542,42 @@ namespace LibraryManagement.Forms
             }
         }
 
+        private void BtnTrackingAllOrders_Click(object sender, EventArgs e)
+        {
+            PnlReturnBook.Visible = false;
+            PnlTrackingOrders.Visible = true;
+            PnlNewOrders.Visible = false;
+            PnlAccount.Visible = false;
+            BtnTrackingAllOrders.BackColor = Color.RoyalBlue;
+            BtnCreateOrder.BackColor = Color.CornflowerBlue;
+            BtnReturnBook.BackColor = Color.CornflowerBlue;
+            BtnAccount.BackColor = Color.CornflowerBlue;
+            PnlLibraryApp.Visible = false;
+            
+
+        }
+
         private void BtnTrackingToday_Click(object sender, EventArgs e)
         {
-            FillTodayOrders();
+            DgvTracking.Rows.Clear();
+
+
+            var now = DateTime.Now.Date;
+            var tomor = now.AddHours(24);
+
+            List<OrderItem> orderitems = _context.OrderItems.Include("Book").Include("Order").Include("Order.Costumer").Where(o => o.ReturnDate > now && o.ReturnDate < tomor && o.IsHave == false).ToList();
+
+            foreach (var item in orderitems)
+            {
+                DgvTracking.Rows.Add(item.Id,
+                                    item.Order.Costumer.FirstName + " " + item.Order.Costumer.LastName,
+                                    item.Book.Name,
+                                    item.Count,
+                                    item.Order.CreatedDate,
+                                    item.ReturnDate,
+                                    item.PayPrice);
+
+            }
         }
 
         private void BtnAllfalseOrders_Click(object sender, EventArgs e)
@@ -610,9 +585,9 @@ namespace LibraryManagement.Forms
             DgvTracking.Rows.Clear();
 
 
-            var baselineDate = DateTime.Now.AddHours(-24);
+            var falsealldate = DateTime.Now.AddHours(-24);
 
-            List<OrderItem> orderitems = _context.OrderItems.Include("Book").Include("Order").Include("Order.Costumer").Where(o => o.ReturnDate < baselineDate && o.IsHave == false).ToList();
+            List<OrderItem> orderitems = _context.OrderItems.Include("Book").Include("Order").Include("Order.Costumer").Where(o => o.ReturnDate < falsealldate && o.IsHave == false).ToList();
 
             foreach (var item in orderitems)
             {
@@ -627,12 +602,10 @@ namespace LibraryManagement.Forms
             }
         }
 
-        private void ResetAllPanlesTextsDashInclude()
-        {
 
-        }
+        #endregion
 
-
+        #region Accounts Tracking Panel Functions And Buttons
         private void BtnAccount_Click(object sender, EventArgs e)
         {
             PnlAccount.Visible = true;
@@ -644,6 +617,8 @@ namespace LibraryManagement.Forms
             BtnCreateOrder.BackColor = Color.CornflowerBlue;
             BtnReturnBook.BackColor = Color.CornflowerBlue;
             BtnAccount.BackColor = Color.RoyalBlue;
+            DashBoardtxtcmbReset();
+
         }
 
         private void BtnSelectDate_Click(object sender, EventArgs e)
@@ -675,19 +650,19 @@ namespace LibraryManagement.Forms
             worksheet = workbook.ActiveSheet;
             worksheet.Name = "Hesabatlar";
 
-            for (int i=1; i<DgvTrackingAccount.Columns.Count+1; i++)
+            for (int i = 1; i < DgvTrackingAccount.Columns.Count + 1; i++)
             {
-                worksheet.Cells[1,i] = DgvTrackingAccount.Columns[i - 1].HeaderText;
+                worksheet.Cells[1, i] = DgvTrackingAccount.Columns[i - 1].HeaderText;
             }
-            for (int i=0; i<DgvTrackingAccount.Rows.Count; i++)
+            for (int i = 0; i < DgvTrackingAccount.Rows.Count; i++)
             {
-                for (int j=0; j <DgvTrackingAccount.Columns.Count; j++)
+                for (int j = 0; j < DgvTrackingAccount.Columns.Count; j++)
                 {
                     if (DgvTrackingAccount.Rows[i].Cells[j].Value != null)
                     {
                         worksheet.Cells[i + 2, j + 1] = DgvTrackingAccount.Rows[i].Cells[j].Value.ToString();
                     }
-                        
+
                 }
             }
             var saveFileDialoge = new SaveFileDialog();
@@ -699,6 +674,37 @@ namespace LibraryManagement.Forms
             }
             app.Quit();
         }
+        #endregion
+
+        #region Reset Forms And LibraryHome Click
+        private void ResetForm()
+        {
+
+            CmbBookOrder.Enabled = false;
+            NmrBookCount.Enabled = false;
+            DateReturnDay.Enabled = false;
+            LblPriceOrderLbl.Enabled = false;
+            CmbCostumerOrder.Enabled = true;
+            BtnSubmitOrders.Visible = false;
+            BtnAddNewOrderNew.Enabled = false;
+            PctEmptyBasket.Visible = true;
+            PctFullBasket.Visible = false;
+            DgvBookDashboard.Rows.Clear();
+            LblPriceAllbooks.Text = "0";
+            NmrBookCount.Value = 1;
+            LblPriceOrderLbl.Text = "0";
+            CmbCostumerOrder.Text = string.Empty;
+            CmbBookOrder.Text = string.Empty;
+            DateReturnDay.Value = DateTime.Now;
+            LblCostumer.ForeColor = SystemColors.ControlText;
+            LblBookOrder.ForeColor = SystemColors.ControlText;
+            LblBookCount.ForeColor = SystemColors.ControlText;
+            LblDateTimeOrder.ForeColor = SystemColors.ControlText;
+            BtnRemoveList.Visible = false;
+
+        }
+
+
 
         private void LblLibraryManager_Click(object sender, EventArgs e)
         {
@@ -712,6 +718,50 @@ namespace LibraryManagement.Forms
             BtnCreateOrder.BackColor = Color.CornflowerBlue;
             BtnReturnBook.BackColor = Color.CornflowerBlue;
             BtnAccount.BackColor = Color.CornflowerBlue;
+            DashBoardtxtcmbReset();
+
+        }
+
+
+
+        private void DashBoardtxtcmbReset()
+        {
+
+
+
+            dateTimePickerAccount1.Value = DateTime.Now;
+            dateTimePickerAccount2.Value = DateTime.Now;
+            DgvTrackingAccount.Rows.Clear();
+            TxtRBCostumerName.Text = string.Empty;
+            dateTimePickerRB.Value = DateTime.Now;
+            LblRbCountValue.Text = "0";
+            DgvOrderReturn.Rows.Clear();
+            lblRbTotal.Text = string.Empty;
+            DgvTracking.Rows.Clear();
+
+
+        }
+        #endregion
+
+        #region All Dashboard Hovers
+        private void BtnRemoveList_MouseEnter(object sender, EventArgs e)
+        {
+            BtnRemoveList.BackColor = Color.Red;
+        }
+
+        private void BtnRemoveList_MouseLeave(object sender, EventArgs e)
+        {
+            BtnRemoveList.BackColor = Color.Firebrick;
+        }
+
+        private void BtnAddNewOrderNew_MouseEnter(object sender, EventArgs e)
+        {
+            BtnAddNewOrderNew.BackColor = Color.DodgerBlue;
+        }
+
+        private void BtnAddNewOrderNew_MouseLeave(object sender, EventArgs e)
+        {
+            BtnAddNewOrderNew.BackColor = Color.DeepSkyBlue;
         }
 
         private void BtnExport_MouseEnter(object sender, EventArgs e)
@@ -721,10 +771,10 @@ namespace LibraryManagement.Forms
 
         private void BtnExport_MouseLeave(object sender, EventArgs e)
         {
-            BtnExport.BackColor = Color.RoyalBlue;
+            BtnExport.BackColor = Color.DeepSkyBlue;
         }
 
-        
+
 
         private void BtnSubmitOrders_MouseEnter(object sender, EventArgs e)
         {
@@ -786,78 +836,17 @@ namespace LibraryManagement.Forms
             BtnAllfalseOrders.BackColor = Color.DeepSkyBlue;
         }
 
-        private void BtnAddNewOrderNew_Click(object sender, EventArgs e)
+
+
+        #endregion
+
+        private void DashBoard_Load(object sender, EventArgs e)
         {
-            if (!Validation())
-            {
-                return;
-            }
-
-            if (!ValidateBookCountOnStock())
-            {
-
-                return;
-            }
-
-            var money = Convert.ToDecimal(LblPriceOrderLbl.Text);
-
-            DgvBookDashboard.Rows.Add(_selectedbook.Id, _selectedbook.Name, NmrBookCount.Value, DateReturnDay.Value, money);
-
-            _selectedbook.Count += Convert.ToInt32(NmrBookCount.Value);
-
-            CmbCostumerOrder.Enabled = false;
-            CmbBookOrder.Text = string.Empty;
-            NmrBookCount.Value = 0;
-            LblPriceOrderLbl.Text = " ";
-            BtnRemoveList.Visible = false;
-            BtnSubmitOrders.Visible = true;
-            BtnAddNewOrderNew.Enabled = false;
-            _totalmoney += money;
-
-            LblPriceAllbooks.Text = _totalmoney.ToString();
-
-            BtnPnlResetForm();
-            DateReturnDay.Enabled = false;
-            NmrBookCount.Enabled = false;
-            LblPriceOrderLbl.Enabled = false;
-            PctEmptyBasket.Visible = false;
-            PctFullBasket.Visible = true;
-        }
-
-        private void BtnAddNewOrderNew_MouseEnter(object sender, EventArgs e)
-        {
-            BtnAddNewOrderNew.BackColor = Color.DodgerBlue;
-        }
-
-        private void BtnAddNewOrderNew_MouseLeave(object sender, EventArgs e)
-        {
-            BtnAddNewOrderNew.BackColor = Color.DeepSkyBlue;
-        }
-
-        private void NmrBookCount_ValueChanged_1(object sender, EventArgs e)
-        {
-            BtnAddNewOrderNew.Enabled = true;
-            CalcMoneyCountAllBook();
-            CalcMoneyFalseReturnDay();
-        }
-
-        private void DateReturnDay_ValueChanged_1(object sender, EventArgs e)
-        {
-            CalcMoneyFalseReturnDay();
-            
-            BtnAddNewOrderNew.Enabled = true;
-
+            FillCustomerList();
+            FillBookList();
         }
     }
 }
 
 
 
-//Umumi Panel ucun tracikng uun lazim olacaq
-//    _context.OrderItems.Where(r => r.ReturnDate <= DateTime.Now).Select(r => new
-//    {
-
-//        r.Order.Costumer.FirstName,
-//        r.Order.Costumer.LastName
-//    }).ToList();
-//}
