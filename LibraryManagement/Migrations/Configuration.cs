@@ -18,6 +18,14 @@
 
         protected override void Seed(LibraryManagement.DAL.LibraryContext context)
         {
+            #region variable
+            var day = DateTime.Now;
+            var fvday = day.AddDays(-5);
+            var tnday = day.AddDays(-10);
+            var frday = day.AddDays(-4);
+            var nineday = day.AddDays(-9);
+            #endregion
+
             #region Seed 
             Costumer cost1 = new Costumer
             {
@@ -122,7 +130,7 @@
 
             Book book5 = new Book
             {
-                Name = "Hər Şey Snlə Başlar",
+                Name = "Hər Şey Sənlə Başlar",
                 Count = 3,
                 Price = 1
             };
@@ -139,9 +147,32 @@
 
             };
 
+
             context.Orders.Add(order1);
             context.SaveChanges();
 
+            Order order2 = new Order
+            {
+                Costumer = cost2,
+                CreatedDate = fvday,
+
+
+            };
+
+
+            context.Orders.Add(order2);
+            context.SaveChanges();
+            Order order3 = new Order
+            {
+                Costumer = cost2,
+                CreatedDate = tnday,
+
+
+            };
+
+
+            context.Orders.Add(order3);
+            context.SaveChanges();
 
             OrderItem orit1 = new OrderItem
             {
@@ -154,15 +185,15 @@
             context.OrderItems.Add(orit1);
             context.SaveChanges();
 
-            Order order2 = new Order
+            Order order4 = new Order
             {
                 Costumer = cost2,
-                CreatedDate = DateTime.Now,
+                CreatedDate = tnday,
 
 
             };
 
-            context.Orders.Add(order2);
+            context.Orders.Add(order4);
             context.SaveChanges();
 
 
@@ -177,10 +208,10 @@
             context.OrderItems.Add(orit2);
             context.SaveChanges();
 
-            Order order3 = new Order
+            Order order5 = new Order
             {
                 Costumer = cost3,
-                CreatedDate = DateTime.Now,
+                CreatedDate = tnday,
 
 
             };
@@ -195,9 +226,56 @@
                 Count = 3,
                 PayPrice = 32,
                 ReturnDate = DateTime.Now,
-                Order = order3
+                Order = order5
             };
             context.OrderItems.Add(orit3);
+            context.SaveChanges();
+
+           
+
+
+            OrderItem orit4 = new OrderItem
+            {
+                Book = book3,
+                Count = 3,
+                PayPrice = 32,
+                ReturnDate = tnday,
+                Order = order3
+            };
+            context.OrderItems.Add(orit4);
+            context.SaveChanges();
+
+            OrderItem orit5 = new OrderItem
+            {
+                Book = book3,
+                Count = 3,
+                PayPrice = 32,
+                ReturnDate = fvday,
+                Order = order3
+            };
+            context.OrderItems.Add(orit5);
+            context.SaveChanges();
+
+            OrderItem orit6 = new OrderItem
+            {
+                Book = book2,
+                Count = 3,
+                PayPrice = 32,
+                ReturnDate = nineday,
+                Order = order3
+            };
+            context.OrderItems.Add(orit6);
+            context.SaveChanges();
+
+            OrderItem orit7 = new OrderItem
+            {
+                Book = book1,
+                Count = 1,
+                PayPrice = 9,
+                ReturnDate = frday,
+                Order = order5
+            };
+            context.OrderItems.Add(orit7);
             context.SaveChanges();
             #endregion
         }
