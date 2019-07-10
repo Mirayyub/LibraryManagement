@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CostumerPg));
             this.BtnSearchCostumer = new System.Windows.Forms.Button();
             this.TxtSearchCostumer = new System.Windows.Forms.TextBox();
             this.BtnCostumerDelete = new System.Windows.Forms.Button();
@@ -259,13 +260,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Menu;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(679, 404);
             this.Controls.Add(this.grpboxCostumer);
             this.Controls.Add(this.LblSearchName);
             this.Controls.Add(this.BtnSearchCostumer);
             this.Controls.Add(this.TxtSearchCostumer);
             this.Controls.Add(this.dgvCostumerlist);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CostumerPg";

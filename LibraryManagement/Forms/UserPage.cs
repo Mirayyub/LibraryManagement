@@ -14,11 +14,14 @@ namespace LibraryManagement.Forms
 {
     public partial class UserPage : Form
     {
+
+        #region Connections Database
         private readonly LibraryContext _context;
+        #endregion
 
+        #region Models
         private User _selecteduser;
-
-
+        #endregion
 
 
         public UserPage()
@@ -30,7 +33,7 @@ namespace LibraryManagement.Forms
             FillUserData();
         }
 
-
+        #region Functions
         private void FillUserData()
         {
             dgvUsersList.Rows.Clear();
@@ -38,7 +41,7 @@ namespace LibraryManagement.Forms
             foreach (var item in _context.Users.ToList())
             {
                 dgvUsersList.Rows.Add(item.Id,
-                    item.UserName,
+                                 item.UserName,
                                  item.FirstName,
                                  item.LastName,
                                  item.Email,
@@ -129,6 +132,9 @@ namespace LibraryManagement.Forms
             BtnUserDelete.Visible = false;
         }
 
+        #endregion
+
+        #region Buttons
         private void BtnAddUser_Click(object sender, EventArgs e)
         {
 
@@ -153,7 +159,7 @@ namespace LibraryManagement.Forms
                 if (item.UserName == user.UserName)
                 {
                     LblUserName.ForeColor = Color.Red;
-                    MessageBox.Show("Eyni Adlı İstifadəçi Olduğu Üçün Şəxs Əlavə Olunmadı","Diqqət!");
+                    MessageBox.Show("Eyni Adlı İstifadəçi Olduğu Üçün Şəxs Əlavə Olunmadı", "Diqqət!");
                     ResetUserForm();
                     return;
                 }
@@ -265,6 +271,9 @@ namespace LibraryManagement.Forms
             }
         }
 
+        #endregion
+
+        #region Key Press
         private void TxtFirstName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
@@ -280,5 +289,7 @@ namespace LibraryManagement.Forms
                 e.Handled = true;
             }
         }
+        #endregion
+
     }
 }

@@ -14,9 +14,17 @@ namespace LibraryManagement.Forms
 {
     public partial class CostumerPg : Form
     {
-        private readonly LibraryContext _context;
 
+        #region Connection Database
+        private readonly LibraryContext _context;
+        #endregion
+
+        #region Models
         private Costumer _selectedcostumer;
+        #endregion
+
+
+
         public CostumerPg()
         {
             InitializeComponent();
@@ -24,6 +32,8 @@ namespace LibraryManagement.Forms
             FillCostumerData();
         }
 
+
+        #region Functions
         private void FillCostumerData()
         {
             dgvCostumerlist.Rows.Clear();
@@ -45,7 +55,7 @@ namespace LibraryManagement.Forms
                 LblLastName.ForeColor = SystemColors.ControlText;
                 LblPhoneNumber.ForeColor = SystemColors.ControlText;
                 LblEmail.ForeColor = SystemColors.ControlText;
-                
+
 
                 return false;
             }
@@ -76,7 +86,7 @@ namespace LibraryManagement.Forms
 
                 return false;
             }
-            
+
 
             return true;
 
@@ -87,7 +97,7 @@ namespace LibraryManagement.Forms
             TxtFirstName.Text = string.Empty;
             TxtLastName.Text = string.Empty;
             TxtPhoneNumber.Text = string.Empty;
-            
+
 
 
             LblFirstName.ForeColor = SystemColors.ControlText;
@@ -102,7 +112,9 @@ namespace LibraryManagement.Forms
             BtnCostumerUpdate.Visible = false;
             BtnCostumerDelete.Visible = false;
         }
+        #endregion
 
+        #region Buttons
         private void BtnCostumerAdd_Click(object sender, EventArgs e)
         {
             if (!Validation())
@@ -115,7 +127,7 @@ namespace LibraryManagement.Forms
             cost.FirstName = TxtFirstName.Text;
             cost.LastName = TxtLastName.Text;
             cost.Email = TxtEmail.Text;
-            cost.PhoneNo= TxtPhoneNumber.Text;
+            cost.PhoneNo = TxtPhoneNumber.Text;
 
 
             List<Costumer> cost1 = _context.Costumers.Where(c => c.FirstName.Contains(TxtFirstName.Text)).ToList();
@@ -138,7 +150,7 @@ namespace LibraryManagement.Forms
             FillCostumerData();
             ResetCostumerForm();
 
-            
+
         }
 
         private void BtnSearchCostumer_Click(object sender, EventArgs e)
@@ -151,7 +163,7 @@ namespace LibraryManagement.Forms
 
             foreach (var item in costs)
             {
-                dgvCostumerlist.Rows.Add(item.Id,                                     
+                dgvCostumerlist.Rows.Add(item.Id,
                                      item.FirstName,
                                      item.LastName,
                                      item.PhoneNo,
@@ -226,6 +238,9 @@ namespace LibraryManagement.Forms
             }
         }
 
+        #endregion
+        
+        #region Key Press
         private void TxtPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -249,5 +264,8 @@ namespace LibraryManagement.Forms
                 e.Handled = true;
             }
         }
+        #endregion
+
+
     }
 }

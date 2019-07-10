@@ -18,7 +18,7 @@
 
         protected override void Seed(LibraryManagement.DAL.LibraryContext context)
         {
-            #region Seed for Teacher
+            #region Seed 
             //Costumer cost1 = new Costumer
             //{
             //    FirstName = "Fuad",
@@ -146,7 +146,7 @@
             //OrderItem orit1 = new OrderItem
             //{
             //    Book = book1,
-            //    Count = 22,
+            //    Count = 2,
             //    PayPrice = 22,
             //    ReturnDate = DateTime.Now,
             //    Order = order1
@@ -154,6 +154,51 @@
             //context.OrderItems.Add(orit1);
             //context.SaveChanges();
 
+            //Order order2 = new Order
+            //{
+            //    Costumer = cost2,
+            //    CreatedDate = DateTime.Now,
+
+
+            //};
+
+            //context.Orders.Add(order2);
+            //context.SaveChanges();
+
+
+            //OrderItem orit2 = new OrderItem
+            //{
+            //    Book = book2,
+            //    Count = 3,
+            //    PayPrice = 11,
+            //    ReturnDate = DateTime.Now,
+            //    Order = order2
+            //};
+            //context.OrderItems.Add(orit2);
+            //context.SaveChanges();
+
+            //Order order3 = new Order
+            //{
+            //    Costumer = cost3,
+            //    CreatedDate = DateTime.Now,
+
+
+            //};
+
+            //context.Orders.Add(order3);
+            //context.SaveChanges();
+
+
+            //OrderItem orit3 = new OrderItem
+            //{
+            //    Book = book3,
+            //    Count = 3,
+            //    PayPrice = 32,
+            //    ReturnDate = DateTime.Now,
+            //    Order = order3
+            //};
+            //context.OrderItems.Add(orit3);
+            //context.SaveChanges();
             #endregion
         }
     }

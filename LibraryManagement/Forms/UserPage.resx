@@ -135,22 +135,29 @@
   <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAADhqjQD4ao0ueGqNP/hqjT/4ao0/+GqNP/hqjT/4ao0/+GqNCsAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAADhqjQO4ao0/+GqNP/hqjT/4ao0/+GqNP/hqjT/4ao0/+GqNP/hqjT/4ao0/wAA
+        AAAAAAAAAAAAAAAAAAAAAAAA4ao0/+GqNP/hqjT/4ao0g+GqNP/hqjT/4ao0/+GqNP/hqjT/4ao0/+Gq
+        NP/hqjT/AAAAAAAAAAAAAAAA4ao0DuGqNP/hqjT/4ao0/wAAAADhqjT/4ao0/+GqNP/hqjT/4ao0/+Gq
+        NP/hqjT/4ao0/+GqNP8AAAAAAAAAAOGqNP3hqjT/4ao0/+GqNP8AAAAA4ao0/+GqNDLhqjRQ4ao0/+Gq
+        NP/hqjT/4ao0/+GqNP/hqjT/AAAAAAAAAADhqjT/4ao0/+GqNP/hqjT/AAAAAOGqNPMAAAAAAAAAAOGq
+        NP/hqjT/4ao0/+GqNP/hqjT/4ao0/+GqNPnhqjQD4ao0/+GqNP/hqjT/4ao0/wAAAADhqjR+4ao07QAA
+        AADhqjQK4ao0/+GqNKoAAAAA4ao0vOGqNP/hqjT/4ao0uOGqNP/hqjT/4ao0LAAAAAAAAAAAAAAAAAAA
+        AADhqjQEAAAAAOGqNCUAAAAAAAAAAOGqNNbhqjT/4ao0/+GqNP/hqjT/4ao0/+GqNP/hqjT64ao0/wAA
+        AADhqjT/4ao04+GqNC8AAAAA4ao0/+GqNP/hqjT/4ao0/+GqNP/hqjT/4ao0/+GqNP/hqjT/4ao0/+Gq
+        NP8AAAAA4ao0MeGqNP/hqjT/4ao0/+GqNP/hqjT/4ao0/+GqNP/hqjT/4ao0Y+GqNP/hqjT/4ao0/+Gq
+        NP/hqjT/4ao0/wAAAADhqjSa4ao0/+GqNP/hqjTd4ao0/+GqNP/hqjT/4ao0EAAAAADhqjQT4ao0/+Gq
+        NP/hqjT/4ao0/+GqNP/hqjTaAAAAAAAAAAAAAAAAAAAAAOGqNNbhqjT/4ao0/wAAAAAAAAAAAAAAAOGq
+        NLThqjT/4ao0/+GqNP/hqjT/4ao0/+GqNP/hqjTu4ao09eGqNP/hqjT/4ao0/wAAAAAAAAAAAAAAAAAA
+        AAAAAAAA4ao0/+GqNP/hqjT/4ao0/+GqNP/hqjT/4ao0/+GqNP/hqjT/4ao0/+GqNBAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAOGqNJHhqjT/4ao0/+GqNP/hqjT64ao07eGqNOfhqjS34ao0HAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA8B8AAOAHAADAAwAAxAEAAIWBAACFgAAAhsgAAB/4AAACYAAAAwAAAIEBAADA8QAAwAMAAOAH
+        AADgHwAA//8AAA==
+</value>
+  </data>
 </root>

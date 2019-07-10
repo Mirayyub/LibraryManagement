@@ -147,20 +147,25 @@ namespace LibraryManagement.Forms
 
         private void BtnCreateOrder_Click(object sender, EventArgs e)
         {
-            
+            CmbCostumerOrder.Items.Clear();
+            FillCostumerList();
+            CmbBookOrder.Items.Clear();
+            FillBookList();
+
             CmbCostumerOrder.Text = string.Empty;
+            CmbCostumerOrder.Enabled = true;
             CmbBookOrder.Text = string.Empty;
             PnlNewOrders.Visible = true;
             LblPriceAllbooks.Text = "0";
             BtnCreateOrder.BackColor = Color.RoyalBlue;
             BtnTrackingAllOrders.BackColor = Color.CornflowerBlue;
             BtnReturnBook.BackColor = Color.CornflowerBlue;
-            BtnCreateOrder.BackColor = Color.RoyalBlue;
+            BtnAccount.BackColor = Color.CornflowerBlue;
             PnlReturnBook.Visible = false;
             PnlTrackingOrders.Visible = false;
             PnlAccount.Visible = false;
-            BtnAccount.BackColor = Color.CornflowerBlue;
             PnlLibraryApp.Visible = false;
+
             DashBoardtxtcmbReset();
         }
         private void BtnPnlResetForm()
@@ -194,7 +199,7 @@ namespace LibraryManagement.Forms
 
         }
 
-        private void FillCustomerList()
+        private void FillCostumerList()
         {
             foreach (var item in _context.Costumers.ToList())
             {
@@ -322,18 +327,21 @@ namespace LibraryManagement.Forms
                 return false;
             }
 
-            if (DateReturnDay.Value <= DateTime.Now)
-            {
-
-                MessageBox.Show("Qaytarma Vaxtını Keçmişə Qeyd Etmək Mümkün Deyil", "Diqqət!");
-
-                return false;
-            }
+            
 
             if (NmrBookCount.Value == 0)
             {
 
                 MessageBox.Show("Bu Kitabdan Kitabxanada Qalmayıb Zəhmət Olmasa Sonra Müraciət edin.", "Diqqət!");
+                return false;
+            }
+            var nowday = DateTime.Now;
+            var minday = nowday.AddDays(-1);
+            if (DateReturnDay.Value <= minday)
+            {
+
+                MessageBox.Show("Qaytarma Vaxtını Keçmişə Qeyd Etmək Mümkün Deyil", "Diqqət!");
+
                 return false;
             }
 
@@ -429,6 +437,8 @@ namespace LibraryManagement.Forms
             DgvOrderReturn.Rows.Clear();
             List<OrderItem> orders = _context.OrderItems.Include("Book").Include("Order").Include("Order.Costumer").Where(o => o.Order.Costumer.FirstName.Contains(TxtRBCostumerName.Text)).ToList();
 
+
+
             foreach (var item in orders)
             {
                 if (item.IsHave == false)
@@ -480,13 +490,18 @@ namespace LibraryManagement.Forms
             }
 
             _selectedorderitem.IsHave = true;
+
             _selectedorderitem.Book.Count += Convert.ToInt32(LblRbCountValue.Text);
+
             _selectedorderitem.PayPrice = _rbtotalmoney;
 
             MessageBox.Show("Əməliyyat Uğurla Yerinə Yetirildi");
             ResetRBForms();
+
             _context.SaveChanges();
+
             this._rbtotalmoney = 0;
+
             lblRbTotal.Text = (this._rbtotalmoney).ToString();
 
 
@@ -625,7 +640,7 @@ namespace LibraryManagement.Forms
         {
             DgvTrackingAccount.Rows.Clear();
 
-            List<OrderItem> orders = _context.OrderItems.Include("Book").Include("Order").Include("Order.Costumer").Where(o => o.ReturnDate <= dateTimePickerAccount1.Value && o.Order.CreatedDate <= dateTimePickerAccount2.Value).ToList();
+            List<OrderItem> orders = _context.OrderItems.Include("Book").Include("Order").Include("Order.Costumer").Where(o => o.Order.CreatedDate >= dateTimePickerAccount1.Value && o.ReturnDate <= dateTimePickerAccount2.Value).ToList();
 
             foreach (var item in orders)
             {
@@ -672,7 +687,10 @@ namespace LibraryManagement.Forms
             {
                 workbook.SaveAs(saveFileDialoge.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing);
             }
+
+            
             app.Quit();
+            MessageBox.Show("Hesabat Uğurla Həyata Keçirildi", "Həyata Keçirildi");
         }
         #endregion
 
@@ -683,6 +701,7 @@ namespace LibraryManagement.Forms
             CmbBookOrder.Enabled = false;
             NmrBookCount.Enabled = false;
             DateReturnDay.Enabled = false;
+            LblPriceOrderLbl.Text = "0";
             LblPriceOrderLbl.Enabled = false;
             CmbCostumerOrder.Enabled = true;
             BtnSubmitOrders.Visible = false;
@@ -692,7 +711,6 @@ namespace LibraryManagement.Forms
             DgvBookDashboard.Rows.Clear();
             LblPriceAllbooks.Text = "0";
             NmrBookCount.Value = 1;
-            LblPriceOrderLbl.Text = "0";
             CmbCostumerOrder.Text = string.Empty;
             CmbBookOrder.Text = string.Empty;
             DateReturnDay.Value = DateTime.Now;
@@ -706,7 +724,10 @@ namespace LibraryManagement.Forms
 
 
 
-        private void LblLibraryManager_Click(object sender, EventArgs e)
+      
+
+
+        private void LblLibraryManager_Click_1(object sender, EventArgs e)
         {
             PnlLibraryApp.Visible = true;
             PnlAccount.Visible = false;
@@ -719,11 +740,7 @@ namespace LibraryManagement.Forms
             BtnReturnBook.BackColor = Color.CornflowerBlue;
             BtnAccount.BackColor = Color.CornflowerBlue;
             DashBoardtxtcmbReset();
-
         }
-
-
-
         private void DashBoardtxtcmbReset()
         {
 
@@ -736,7 +753,7 @@ namespace LibraryManagement.Forms
             dateTimePickerRB.Value = DateTime.Now;
             LblRbCountValue.Text = "0";
             DgvOrderReturn.Rows.Clear();
-            lblRbTotal.Text = string.Empty;
+            lblRbTotal.Text = "0";
             DgvTracking.Rows.Clear();
 
 
@@ -838,15 +855,23 @@ namespace LibraryManagement.Forms
 
 
 
+
         #endregion
 
-        private void DashBoard_Load(object sender, EventArgs e)
-        {
-            FillCustomerList();
-            FillBookList();
-        }
+       
     }
 }
 
 
+
+
+
+
+
+
+
+
+//List<OrderItem> orderitems = _context.OrderItems.Include("Book").Include("Order").Include("Order.Costumer").Where
+
+//            foreach (var item in orderitems)  
 
